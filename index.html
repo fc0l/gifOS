@@ -7,32 +7,82 @@
     <title>gifOS</title>
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <div class="logo">
-                <img src="./svg/logo-desktop.svg" alt="">
+    
+    <nav class="nav-container">
+        <div class="nav-bar">
+            <div class="nav-bar-logo">
+                <img src="./assets/logo-desktop.svg" alt="Icon project">
             </div>
-            <div class="list">
-                <ul>
+            <div class="nav-bar-list">
+                <ul class="nav-list-ul">
                     <li>MODO NOCTURNO</li>
                     <li>FAVORITOS</li>
                     <li>MIS GIFOS</li>
                 </ul>
             </div>
-            <div class="buttonCrearGifo">
-                <img src="./svg/button-crear-gifo.svg" alt="">
+            <div class="nav-bar-button">
+                <img src="./assets/button-crear-gifo.svg" alt="Create gif">
             </div>
         </div>
     </nav>
-    <header>
-        <h2>Inspírate, busca, guarda, y crea los mejores <span>GIFOS</span></h2>
-        <img src="./svg/ilustra_header.svg" alt="">
-        <div class="searchInput">
-            <input type="search" id="search" placeholder="Busca GIFOS y más" autocomplete="off">
-            <button id="searchButton"><img src="./svg/icon-search.svg" alt=""></button>
-        </div>
-        <p>Trending</p>
+
+    <header class="header">
+        <h1 class="header-h1">Inspírate, busca, guarda, y crea los mejores <span>GIFOS</span></h1>
+        <img class="header-img" src="./assets/ilustra_header.svg" alt="Welcome photo">   
     </header>
+
+    <section class="search" id="search">
+        <input type="text" class="search-input" id="search-input" placeholder="Busca GIFOS y más" autocomplete="off">
+        <button id="search-button"><img src="./assets/icon-search.svg" alt="Icon search"></button>
+        <div id="search-results">
+            <p>mascotas 1</p>
+            <p>mascotas 2</p>
+            <p>mascotas 3</p>
+            <p>mascotas 4</p>
+        </div>
+    </section>
+
+    <section id="trending-text" class="trending">
+        <p class="trending-text-p">Trending</p>
+    </section>
+
+    <section class="trending-gifos" id="trending-gifos">
+        <h2 class="trending-gifos-title">Trending GIFOS</h2>
+        <P class="trending-gifos-p">Mira los últimos GIFO de nuestra comunidad</P>
+        <div class="gifos-box">
+            <img src="./test/1.jpg" alt="">
+            <div class="gifos-box-button1"></div>
+            <div class="gifos-box-button2"></div>
+            <div class="gifos-box-button3"></div>
+            <p>User</p>
+            <p>Titulo</p>
+        </div>
+        <div class="trending-gifos-box">
+            <img src="./test/2.png" alt="">
+            <div class="gifos-box-button1"></div>
+            <div class="gifos-box-button2"></div>
+            <div class="gifos-box-button3"></div>
+            <p>User</p>
+            <p>Titulo</p>
+        </div>
+        <div class="trending-gifos-box">
+            <img src="./test/3.jpg" alt="">
+            <div class="gifos-box-button1"></div>
+            <div class="gifos-box-button2"></div>
+            <div class="gifos-box-button3"></div>
+            <p>User</p>
+            <p>Titulo</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>Compartir en:</p>
+        <div class="footer-icon-1"></div>
+        <div class="footer-icon-2"></div>
+        <div class="footer-icon-3"></div>
+    </footer>
+
     <script src="script.js"></script>
+
 </body>
 </html>
