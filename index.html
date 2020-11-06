@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style/style.css">
     <title>gifOS</title>
 </head>
@@ -14,7 +15,7 @@
                 <img src="./assets/logo-desktop.svg" alt="Icon project">
             </div>
             <div class="nav-bar-list">
-                <ul class="nav-list-ul">
+                <ul class="nav-bar-list-ul">
                     <li>MODO NOCTURNO</li>
                     <li>FAVORITOS</li>
                     <li>MIS GIFOS</li>
@@ -31,55 +32,96 @@
         <img class="header-img" src="./assets/ilustra_header.svg" alt="Welcome photo">   
     </header>
 
-    <section class="search" id="search">
-        <input type="text" class="search-input" id="search-input" placeholder="Busca GIFOS y más" autocomplete="off">
-        <button id="search-button"><img src="./assets/icon-search.svg" alt="Icon search"></button>
-        <div id="search-results">
-            <p>mascotas 1</p>
-            <p>mascotas 2</p>
-            <p>mascotas 3</p>
-            <p>mascotas 4</p>
-        </div>
-    </section>
+    <div class="search-container" id="search">      
+        <div class="search-box">   
+            
+            <input type="text" class="search-box-input" id="search-input" placeholder="Busca GIFOS y más" autocomplete="off">
+            <img src="./assets/icon-search.svg" alt="search icon" class="search-box-icon-focus">            
+            <button class="search-box-icon"></button>
+        </div>        
+        <div class="search-results" id="search-results">
+            <hr class="search-line">
+            <p><img src="./assets/icon-search.svg" alt="search icon" class="search-icon-onfocus">Mascotas 1</p>
+            <p><img src="./assets/icon-search.svg" alt="search icon" class="search-icon-onfocus"> mascotas 2</p>
+            <p><img src="./assets/icon-search.svg" alt="search icon" class="search-icon-onfocus"> mascotas 3</p>
+            <p><img src="./assets/icon-search.svg" alt="search icon" class="search-icon-onfocus"> mascotas 4</p>
+        </div>      
+    </div>
 
-    <section id="trending-text" class="trending">
-        <p class="trending-text-p">Trending</p>
-    </section>
+    <div id="trending-text" class="trending-text">
+        <p class="trending-text-p">Trending:</p>
+        <a href="#">Reactions, Entertainment, Sports, Sticker, Artists</a>
+    </div>
 
-    <section class="trending-gifos" id="trending-gifos">
-        <h2 class="trending-gifos-title">Trending GIFOS</h2>
-        <P class="trending-gifos-p">Mira los últimos GIFO de nuestra comunidad</P>
-        <div class="gifos-box">
-            <img src="./test/1.jpg" alt="">
-            <div class="gifos-box-button1"></div>
-            <div class="gifos-box-button2"></div>
-            <div class="gifos-box-button3"></div>
-            <p>User</p>
-            <p>Titulo</p>
+    <div class="trending-gifos" id="trending-gifos">
+
+        <div class="trending-gifos-header">
+            <h2 class="trending-gifos-header-title">Trending GIFOS</h2>
+            <P class="trending-gifos-header-p">Mira los últimos GIFO de nuestra comunidad</P>
         </div>
-        <div class="trending-gifos-box">
-            <img src="./test/2.png" alt="">
-            <div class="gifos-box-button1"></div>
-            <div class="gifos-box-button2"></div>
-            <div class="gifos-box-button3"></div>
-            <p>User</p>
-            <p>Titulo</p>
+
+        <div class="trending-gifos-body">
+
+            <button class="trending-gifos-body-button-left"></button>
+
+            <div class="gifos-box-container">
+                <div class="gifos-box">
+                    <img src="./test/1.jpg" alt="">
+                    <div class="wrapper"></div>
+                    <div class="gifos-box-buttons display">
+                        <div class="gifos-box-button1 "></div>
+                        <div class="gifos-box-button2 "></div>
+                        <div class="gifos-box-button3 "></div>
+                    </div>
+                    <div class="gifos-box-text display">
+                        <p class="user ">User</p>
+                        <p class="title ">Titulo</p>
+                    </div>
+                </div>
+                <div class="gifos-box">
+                    <img src="./test/2.png" alt="">
+                    <div class="wrapper"></div>
+                    <div class="gifos-box-buttons display">
+                        <div class="gifos-box-button1 "></div>
+                        <div class="gifos-box-button2 "></div>
+                        <div class="gifos-box-button3 "></div>
+                    </div>
+                    <div class="gifos-box-text display">
+                        <p class="user ">User</p>
+                        <p class="title ">Titulo</p>
+                    </div>
+                </div>
+                <div class="gifos-box">
+                    <img src="./test/3.jpg" alt="">
+                    <div class="wrapper"></div>
+                    <div class="gifos-box-buttons display">
+                        <div class="gifos-box-button1 "></div>
+                        <div class="gifos-box-button2 "></div>
+                        <div class="gifos-box-button3 "></div>
+                    </div>
+                    <div class="gifos-box-text display">
+                        <p class="user">User</p>
+                        <p class="title">Titulo</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="trending-gifos-body-button-rigth"></button>
+
         </div>
-        <div class="trending-gifos-box">
-            <img src="./test/3.jpg" alt="">
-            <div class="gifos-box-button1"></div>
-            <div class="gifos-box-button2"></div>
-            <div class="gifos-box-button3"></div>
-            <p>User</p>
-            <p>Titulo</p>
-        </div>
-    </section>
+
+    </div>
 
     <footer class="footer">
+        <div class="footer-list">
         <p>Compartir en:</p>
         <div class="footer-icon-1"></div>
         <div class="footer-icon-2"></div>
         <div class="footer-icon-3"></div>
+    </div>
+    <div class="footer-p">
+        <p>© GIFOS 2020 All Rights Reserved</p>
+    </div>
     </footer>
 
     <script src="script.js"></script>
