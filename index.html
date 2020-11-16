@@ -9,69 +9,334 @@
 </head>
 <body>
     
-    <nav class="nav-container">
+    <nav class="nav-container" id="navbar">
         <div class="nav-bar">
             <div class="nav-bar-logo">
-                <img src="./assets/logo-desktop.svg" alt="Icon project">
+                <a href="."><img src="./assets/logo-desktop.svg" alt="Icon project" class="logo" id="logo"></a>
+                <a href="."><img src="./assets/Logo-modo-noc.svg" alt="Logo GIFOS nocturno" class="logo-modo-noc" id="logo-modo-noc"></a>
             </div>
-            <div class="nav-bar-list">
-                <ul class="nav-bar-list-ul">
-                    <li>MODO NOCTURNO</li>
-                    <li>FAVORITOS</li>
-                    <li>MIS GIFOS</li>
+            <div class="nav-bar-list" id="nav-bar-list">
+                <ul class="nav-bar-list-ul" id="nav-bar-list-ul">
+                    <li id="modo-nocturno" class="nav-bar-list-li">MODO NOCTURNO</li>
+                    <hr>
+                    <li id="navbar-favoritos" class="nav-bar-list-li">FAVORITOS</li>
+                    <hr>
+                    <li id="navbar-mis-gifos" class="nav-bar-list-li">MIS GIFOS</li>
+                    <hr>
                 </ul>
             </div>
-            <div class="nav-bar-button">
-                <img src="./assets/button-crear-gifo.svg" alt="Create gif">
-            </div>
+            <div class="nav-bar-button" id="nav-bar-button"></div>
+            <div class="nav-bar-button-burger" id="nav-bar-burger"></div>
+            <div class="nav-bar-button-cancel" id="nav-bar-cancel"></div>
         </div>
     </nav>
 
-    <header class="header">
-        <h1 class="header-h1">Inspírate, busca, guarda, y crea los mejores <span>GIFOS</span></h1>
+    <div class="favoritos" id="favoritos">
+        <img src="./assets/icon-favoritos.svg" alt="Favoritos">
+        <h2 class="favoritos-h2" id="favoritos-h2">Favoritos</h2>
+        <div class="results-gifos-container"> 
+
+            <div class="results-gifos-box">
+                    <img src="./test/1.jpg" alt="">
+                    <div class="wrapper"></div>
+                    <div class="gifos-box-buttons display">
+                        <div class="gifos-box-button1"></div>
+                        <div class="gifos-box-button2"></div>
+                        <div class="gifos-box-button3"></div>
+                    </div>
+                    <div class="gifos-box-text display">
+                        <p class="user ">User</p>
+                        <p class="title ">Titulo</p>
+                    </div>
+            </div>
+            <div class="results-gifos-box">
+                    <img src="./test/2.png" alt="">
+                    <div class="wrapper"></div>
+                    <div class="gifos-box-buttons display">
+                        <div class="gifos-box-button1"></div>
+                        <div class="gifos-box-button2"></div>
+                        <div class="gifos-box-button3"></div>
+                    </div>
+                    <div class="gifos-box-text display">
+                        <p class="user ">User</p>
+                        <p class="title ">Titulo</p>
+                    </div>
+            </div>
+            <div class="results-gifos-box">
+                    <img src="./test/3.jpg" alt="">
+                    <div class="wrapper"></div>
+                    <div class="gifos-box-buttons display">
+                        <div class="gifos-box-button1"></div>
+                        <div class="gifos-box-button2"></div>
+                        <div class="gifos-box-button3"></div>
+                    </div>
+                    <div class="gifos-box-text display">
+                        <p class="user">User</p>
+                        <p class="title">Titulo</p>
+                    </div>
+            </div>
+            <div class="results-gifos-box">
+                <img src="./test/3.jpg" alt="">
+                <div class="wrapper"></div>
+                <div class="gifos-box-buttons display">
+                    <div class="gifos-box-button1"></div>
+                    <div class="gifos-box-button2"></div>
+                    <div class="gifos-box-button3"></div>
+                </div>
+                <div class="gifos-box-text display">
+                    <p class="user">User</p>
+                    <p class="title">Titulo</p>
+                </div>
+            </div>
+            <div class="results-gifos-box">
+                <img src="./test/3.jpg" alt="">
+                <div class="wrapper"></div>
+                <div class="gifos-box-buttons display">
+                    <div class="gifos-box-button1"></div>
+                    <div class="gifos-box-button2"></div>
+                    <div class="gifos-box-button3"></div>
+                </div>
+                <div class="gifos-box-text display">
+                    <p class="user">User</p>
+                    <p class="title">Titulo</p>
+                </div>
+            </div>
+            <div class="results-gifos-box">
+                <img src="./test/3.jpg" alt="">
+                <div class="wrapper"></div>
+                <div class="gifos-box-buttons display">
+                    <div class="gifos-box-button1"></div>
+                    <div class="gifos-box-button2"></div>
+                    <div class="gifos-box-button3"></div>
+                </div>
+                <div class="gifos-box-text display">
+                    <p class="user">User</p>
+                    <p class="title">Titulo</p>
+                </div>
+            </div>
+        </div>
+        <button class="results-gifos-button" id="favoritos-vermas"></button>
+    </div>
+
+    <div class="favoritos-sin-contenido" id="favoritos-sin-contenido">
+        <img src="./assets/icon-favoritos.svg" alt="Favoritos">
+        <h2 class="favoritos-h2" id="favoritos-h2-sc">Favoritos</h2>
+        <img class="favoritos-sin-contenido-img2" src="./assets/icon-fav-sin-contenido.svg" alt="Sin favoritos">
+        <p class="favoritos-sin-contenido-p">"¡Guarda tu primer GIFO en Favoritos 
+            para que se muestre aquí!"</p>
+    </div>
+
+    <div class="mis-gifos" id="mis-gifos">
+        <img src="./assets/icon-mis-gifos.svg" alt="Favoritos">
+        <h2 class="favoritos-h2" id="mis-gifos-h2">Mis GIFOS</h2>
+        <div class="results-gifos-container"> 
+
+            <div class="results-gifos-box">
+                    <img src="./test/1.jpg" alt="">
+                    <div class="wrapper"></div>
+                    <div class="gifos-box-buttons display">
+                        <div class="gifos-box-button1"></div>
+                        <div class="gifos-box-button2"></div>
+                        <div class="gifos-box-button3"></div>
+                    </div>
+                    <div class="gifos-box-text display">
+                        <p class="user ">User</p>
+                        <p class="title ">Titulo</p>
+                    </div>
+            </div>
+            <div class="results-gifos-box">
+                    <img src="./test/2.png" alt="">
+                    <div class="wrapper"></div>
+                    <div class="gifos-box-buttons display">
+                        <div class="gifos-box-button1"></div>
+                        <div class="gifos-box-button2"></div>
+                        <div class="gifos-box-button3"></div>
+                    </div>
+                    <div class="gifos-box-text display">
+                        <p class="user ">User</p>
+                        <p class="title ">Titulo</p>
+                    </div>
+            </div>
+            <div class="results-gifos-box">
+                    <img src="./test/3.jpg" alt="">
+                    <div class="wrapper"></div>
+                    <div class="gifos-box-buttons display">
+                        <div class="gifos-box-button1"></div>
+                        <div class="gifos-box-button2"></div>
+                        <div class="gifos-box-button3"></div>
+                    </div>
+                    <div class="gifos-box-text display">
+                        <p class="user">User</p>
+                        <p class="title">Titulo</p>
+                    </div>
+            </div>
+            <div class="results-gifos-box">
+                <img src="./test/3.jpg" alt="">
+                <div class="wrapper"></div>
+                <div class="gifos-box-buttons display">
+                    <div class="gifos-box-button1"></div>
+                    <div class="gifos-box-button2"></div>
+                    <div class="gifos-box-button3"></div>
+                </div>
+                <div class="gifos-box-text display">
+                    <p class="user">User</p>
+                    <p class="title">Titulo</p>
+                </div>
+            </div>
+            <div class="results-gifos-box">
+                <img src="./test/3.jpg" alt="">
+                <div class="wrapper"></div>
+                <div class="gifos-box-buttons display">
+                    <div class="gifos-box-button1"></div>
+                    <div class="gifos-box-button2"></div>
+                    <div class="gifos-box-button3"></div>
+                </div>
+                <div class="gifos-box-text display">
+                    <p class="user">User</p>
+                    <p class="title">Titulo</p>
+                </div>
+            </div>
+            <div class="results-gifos-box">
+                <img src="./test/3.jpg" alt="">
+                <div class="wrapper"></div>
+                <div class="gifos-box-buttons display">
+                    <div class="gifos-box-button1"></div>
+                    <div class="gifos-box-button2"></div>
+                    <div class="gifos-box-button3"></div>
+                </div>
+                <div class="gifos-box-text display">
+                    <p class="user">User</p>
+                    <p class="title">Titulo</p>
+                </div>
+            </div>
+        </div>
+        <button class="results-gifos-button" id="mis-gifos-vermas"></button>
+    </div>
+
+    <div class="mis-gifos-sin-contenido" id="mis-gifos-sin-contenido">
+        <img src="./assets/icon-mis-gifos.svg" alt="Favoritos">
+        <h2 class="favoritos-h2" id="mis-gifos-sc-h2">Mis GIFOS</h2>
+        <img class="favoritos-sin-contenido-img2" src="./assets/icon-mis-gifos-sin-contenido.svg" alt="Sin favoritos">
+        <p class="favoritos-sin-contenido-p">¡Anímate a crear tu primer GIFO!</p>
+    </div>
+
+    <div class="crear-gifo-1" id="crear-gifo-1">
+        <div class="crear-gifo-camara">
+            <img class="crear-gifo-camara1" id="crear-gifo-camara1" src="./assets/camara.svg" alt="Camara">
+            <img class="crear-gifo-camara2" src="./assets/element-luz-camara.svg" alt="Luz">
+        </div>
+        <div class="crear-gifo-cuadro">
+            <div class="crear-gifo-cuadro-a">
+                <div class="crear-gifo-border1"></div>
+                <div class="crear-gifo-border2"></div>
+                <div class="crear-gifo-content">
+                    <h2 class="crear-gifo-h2" id="crear-gifo-h2">Aquí podrás<br> crear tus propios <span>GIFOS</span></h2>
+                    <p class="crear-gifo-p" id="crear-gifo-p">
+                        ¡Crea tu GIFO en sólo 3 pasos!<br> (sólo necesitas una cámara para grabar un video) 
+                    </p>
+                </div>
+                <div class="crear-gifo-2-content">
+                    <h2 class="crear-gifo-h2" id="crear-gifo-content2">¿Nos das acceso<br> a tu cámara?</h2>
+                    <p class="crear-gifo-p" id="crear-gifo-content2p">
+                        El acceso a tu camara será válido sólo<br> por el tiempo en el que estés creando el GIFO.
+                    </p>
+                </div>
+                <div class="crear-gifo-3-content">
+                    <img class="crear-gifo-3-img" src="./test/2.png" alt="Grabacion">
+                    <div class="crear-gifo-3-wrapper"><div class="crear-gifo-3-buttons">
+                        <div class="gifos-box-button2"></div>
+                        <div class="gifos-box-button4"></div>
+                    </div></div>
+                    <div class="crear-gifo-3-load">
+                        <img src="./assets/loader.svg" alt="Cargando" class="crear-gifo-3-load-img">
+                        <p class="crear-gifo-3-load-p">Estamos subiendo tu GIFO</p>
+                    </div>
+                    <div class="crear-gifo-3-load-2">
+                        <img src="./assets/ok.svg" alt="Cargando" class="crear-gifo-3-load-img">
+                        <p class="crear-gifo-3-load-p">GIFO subido con éxito</p>
+                    </div>
+                    
+                </div>
+                <div class="crear-gifo-border3"></div>
+                <div class="crear-gifo-border4"></div>
+            </div>
+        </div>
+        <div class="crear-gifo-bar">
+            <div class="crear-gifo-bar-numbers">
+                <div class="crear-gifo-bar-number1" id="crear-gifo-number1"></div>
+                <div class="crear-gifo-bar-number1-color" id="crear-gifo-number1-color"></div>
+                <div class="crear-gifo-bar-number2" id="crear-gifo-number2"></div>
+                <div class="crear-gifo-bar-number2-color" id="crear-gifo-number2-color"></div>
+                <div class="crear-gifo-bar-number3" id="crear-gifo-number3"></div>
+                <div class="crear-gifo-bar-number3-color" id="crear-gifo-number3-color"></div>
+            </div>
+            <div class="crear-gifo-barra" id="crear-gifo-barra"></div>
+            <button class="crear-gifo-comenzar" id="crear-gifo-comenzar">COMENZAR</button>
+            <button class="crear-gifo-grabar" id="crear-gifo-grabar">GRABAR</button>
+            <button class="crear-gifo-finalizar" id="crear-gifo-finalizar">FINALIZAR</button>
+            <button class="crear-gifo-subirgifo" id="crear-gifo-subir">SUBIR GIFO</button>
+            <div class="crear-gifo-3-time">
+                <p class="crear-gifo-3-time-p" id="crear-gifo-time">00:00:05</p>
+            </div>
+            <div class="crear-gifo-3-repetir">
+                <p class="crear-gifo-3-repetir-p" id="crear-gifo-repetir">REPETIR CAPTURA</p>
+            </div>
+        </div>
+        <div class="crear-gifo-cinta">
+            <img class="crear-gifo-cinta-img" id="crear-gifo-cinta" src="./assets/pelicula.svg" alt="Pelicula">
+        </div>
+    </div>
+
+    <header class="header" id="header">
+        <h1 class="header-h1" id="header-h1">Inspírate, busca, guarda, y crea los mejores <span>GIFOS</span></h1>
         <img class="header-img" src="./assets/ilustra_header.svg" alt="Welcome photo">   
     </header>
 
-    <div class="search-container" id="search">      
-        <div class="search-box">   
-            
+    <div class="search-container" id="search-container">      
+        <div class="search-box">
             <input type="text" class="search-box-input" id="search-input" placeholder="Busca GIFOS y más" autocomplete="off">
-            <img src="./assets/icon-search.svg" alt="search icon" class="search-box-icon-focus">            
-            <button class="search-box-icon"></button>
+            <img src="./assets/icon-search.svg" alt="search icon" class="search-box-icon-focus" id="search-box-icon-focus">
+            <button class="search-box-icon" id="search-icon"></button>
         </div>        
         <div class="search-results" id="search-results">
             <hr class="search-line">
-            <p><img src="./assets/icon-search.svg" alt="search icon" class="search-icon-onfocus">Mascotas 1</p>
-            <p><img src="./assets/icon-search.svg" alt="search icon" class="search-icon-onfocus"> mascotas 2</p>
-            <p><img src="./assets/icon-search.svg" alt="search icon" class="search-icon-onfocus"> mascotas 3</p>
-            <p><img src="./assets/icon-search.svg" alt="search icon" class="search-icon-onfocus"> mascotas 4</p>
         </div>      
     </div>
 
     <div id="trending-text" class="trending-text">
         <p class="trending-text-p">Trending:</p>
-        <a href="#">Reactions, Entertainment, Sports, Sticker, Artists</a>
+        <p class="trending-text-a" id="trending-text-a"></p>
     </div>
 
-    <div class="trending-gifos" id="trending-gifos">
+    <div class="results-gifos" id="results-gifos">
+        <hr>
+        <h2 class="results-gifos-h2" id="results-gifos-h2"></h2>
+        <div class="results-gifos-container" id="results-gifos-container"></div>
+        <button class="results-gifos-button" id="results-gifos-button"></button>
+    </div>
 
+    <div class="sin-resultados-gifos" id="sin-resultados-gifos">
+        <hr>
+        <h2 class="results-gifos-h2" id="results-gifos-h2-w"></h2>
+        <img class="sin-resultados-img" src="./assets/icon-busqueda-sin-resultado.svg" alt="Sin resultados">
+        <p class="sin-resultados-p">Intenta con otra busqueda</p>
+    </div>    
+
+    <div class="trending-gifos" id="trending-gifos">
         <div class="trending-gifos-header">
-            <h2 class="trending-gifos-header-title">Trending GIFOS</h2>
+            <h2 class="trending-gifos-header-title" id="trending-gifos-header-title">Trending GIFOS</h2>
             <P class="trending-gifos-header-p">Mira los últimos GIFO de nuestra comunidad</P>
         </div>
-
         <div class="trending-gifos-body">
-
-            <button class="trending-gifos-body-button-left"></button>
-
+            <button class="trending-gifos-body-button-left" id="button-mod-noc"></button>
             <div class="gifos-box-container">
                 <div class="gifos-box">
                     <img src="./test/1.jpg" alt="">
                     <div class="wrapper"></div>
                     <div class="gifos-box-buttons display">
-                        <div class="gifos-box-button1 "></div>
-                        <div class="gifos-box-button2 "></div>
-                        <div class="gifos-box-button3 "></div>
+                        <div class="gifos-box-button1"></div>
+                        <div class="gifos-box-button2"></div>
+                        <div class="gifos-box-button3"></div>
                     </div>
                     <div class="gifos-box-text display">
                         <p class="user ">User</p>
@@ -82,9 +347,9 @@
                     <img src="./test/2.png" alt="">
                     <div class="wrapper"></div>
                     <div class="gifos-box-buttons display">
-                        <div class="gifos-box-button1 "></div>
-                        <div class="gifos-box-button2 "></div>
-                        <div class="gifos-box-button3 "></div>
+                        <div class="gifos-box-button1"></div>
+                        <div class="gifos-box-button2"></div>
+                        <div class="gifos-box-button3"></div>
                     </div>
                     <div class="gifos-box-text display">
                         <p class="user ">User</p>
@@ -95,9 +360,9 @@
                     <img src="./test/3.jpg" alt="">
                     <div class="wrapper"></div>
                     <div class="gifos-box-buttons display">
-                        <div class="gifos-box-button1 "></div>
-                        <div class="gifos-box-button2 "></div>
-                        <div class="gifos-box-button3 "></div>
+                        <div class="gifos-box-button1"></div>
+                        <div class="gifos-box-button2"></div>
+                        <div class="gifos-box-button3"></div>
                     </div>
                     <div class="gifos-box-text display">
                         <p class="user">User</p>
@@ -105,26 +370,55 @@
                     </div>
                 </div>
             </div>
-
-            <button class="trending-gifos-body-button-rigth"></button>
-
+            <button class="trending-gifos-body-button-right" id="button-mod-noc2"></button>
         </div>
-
     </div>
 
-    <footer class="footer">
-        <div class="footer-list">
-        <p>Compartir en:</p>
-        <div class="footer-icon-1"></div>
-        <div class="footer-icon-2"></div>
-        <div class="footer-icon-3"></div>
+    <div class="gifmax" id="gifmax">
+        <div class="trending-gifmax-body">
+            <div class="gifmax-close" id="gifmax-close"></div>
+            <button class="trending-gifos-body-button-left" id="gifmax-left"></button>
+            <div class="gifmax-box-container">
+                <div>
+                    <img src="./test/1.jpg" alt="Gif maximized">
+                </div>
+                <div class="gifmax-navbar">
+                    <div class="gifmax-text" id="gifmax-text">
+                            <p class="gifmax-user">User</p>
+                            <p class="gifmax-title">Titulo</p>
+                    </div>
+                    <div class="gifmax-buttons">
+                        <div class="gifmax-button1" id="gifmax-button1"></div>
+                        <div class="gifmax-button2" id="gifmax-button2"></div>
+                    </div>
+                </div>
+            </div>
+            <button class="trending-gifos-body-button-right" id="gifmax-right"></button>
+        </div>
     </div>
-    <div class="footer-p">
-        <p>© GIFOS 2020 All Rights Reserved</p>
+
+    <footer class="footer" id="footer">
+        <div class="footer-container">
+            <div class="footer-list">
+                <p>Compartir en:</p>
+                <div class="icons">
+                    <div class="footer-icon-1"></div>
+                    <div class="footer-icon-2"></div>
+                    <div class="footer-icon-3"></div>
+                </div>
+            </div>
+            <div class="footer-p">
+                <p>© GIFOS 2020 All Rights Reserved</p>
+            </div>
     </div>
     </footer>
-
-    <script src="script.js"></script>
+    
+    <script src="./modules/trendingText.js" type="module"></script>
+    <script src="./modules/routes.js" type="module"></script>
+    <script src="./modules/resultados.js" type="module"></script>
+    <script src="./modules/input.js" type="module"></script>
+    <script src="./modules/darkmode.js" type="module"></script>
+    <script src="index.js" type="module"></script>
 
 </body>
 </html>
