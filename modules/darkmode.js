@@ -35,7 +35,7 @@ const gifmax_text = document.getElementById("gifmax-text");
 const gifmax_left = document.getElementById("gifmax-left");
 const gifmax_right = document.getElementById("gifmax-right");
 export const results_gifos_h2 = document.getElementById("results-gifos-h2");
-const results_gifos_vermas = document.getElementById("results-gifos-button");
+export const results_gifos_vermas = document.getElementById("results-gifos-button");
 export const results_gifos_h2_w = document.getElementById("results-gifos-h2-w");
 const favoritos_h2 = document.getElementById("favoritos-h2");
 const favoritos_vermas = document.getElementById("favoritos-vermas");
@@ -184,6 +184,7 @@ function isDark () {
     search_icon.style.background = 'url("./assets/icon-search-mod-noc.svg")';   
     trending_text.style.color = blanco;
     trending_text_a.style.color = blanco;
+    trending_text_p.style.color = blanco;
     for(let i = 0; i < search_icon_onfocus.length; i++){
         search_icon_onfocus[i].src = "./assets/icon-search-mod-noc.svg";
         }
@@ -272,6 +273,7 @@ function notDark () {
     search_icon.style.background = 'url("./assets/icon-search.svg")';
     trending_text.style.color = lila;
     trending_text_a.style.color = lila;
+    trending_text_p.style.color = lila;
     for(let i = 0; i < search_icon_onfocus.length; i++){
         search_icon_onfocus[i].src = "./assets/icon-search.svg";
         }

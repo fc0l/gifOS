@@ -1,9 +1,15 @@
+import { api_key } from './input.js';
+
 export const navbar_favoritos = document.getElementById("navbar-favoritos");
 export const navbar_mis_gifos = document.getElementById("navbar-mis-gifos");
 export const navbar_button_crear = document.getElementById("nav-bar-button")
 export let ventana_activa_mis_gifos = false;
 export let ventana_activa_fav = false;
 export let ventana_activa_crear_gifo = false;
+
+navbar_favoritos.addEventListener("click", ventana_favoritos);
+navbar_mis_gifos.addEventListener("click", ventana_mis_gifos);
+navbar_button_crear.addEventListener("click", ventana_crear_gifo);
 
 const header = document.getElementById("header");
 const search_container = document.getElementById("search-container");
@@ -21,10 +27,15 @@ const gifmax = document.getElementById("gifmax");
 
 const matriz = [];
 
-export function ventana_favoritos() {
-    if (matriz.length > 0){
+function ventana_favoritos() {
+
+    let stringId = localStorage.getItem("favoritos").split(',').slice(1);
+    console.log(stringId.toString());
+
+
+    
+    if (stringId.length > 0){
         header.style.display = "none";
-        favoritos.style.display = "block";
         favoritos_sin_contenido.style.display = "none";
         search_container.style.display = "none";
         treding_text.style.display = "none";
@@ -35,6 +46,14 @@ export function ventana_favoritos() {
         results_gifos.style.display = "none";
         sin_resultados_gifos.style.display = "none";
         gifmax.style.display = "none";
+        favoritos.style.display = "block";
+
+        fetch(`https://api.giphy.com/v1/gifs?api_key=${api_key}&ids=${stringId}`)
+        .then(resp => resp.json())
+        .then(json => {
+            favoritos
+            
+        });
 
     } else {
         header.style.display = "none";
