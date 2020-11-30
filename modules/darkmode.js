@@ -18,7 +18,6 @@ const nav_bar = document.getElementById("navbar");
 const header_h1 = document.getElementById("header-h1");
 const search_input = document.getElementById("search-input");
 const search_icon_focus = document.getElementById("search-box-icon-focus");
-const search_icon_onfocus = document.getElementsByClassName("search-icon-onfocus");
 const search_container = document.getElementById("search-container");
 const search_icon = document.getElementById("search-icon");
 export const trending_text = document.getElementById("trending-text");
@@ -84,7 +83,7 @@ modo_nocturno.addEventListener('click', modoNocturno);
 
 search_input.addEventListener("focus", changeIcon);
 
-search_input.addEventListener("focusout", notChangeIcon);
+search_icon.addEventListener("click", notChangeIcon);
 
 navbar_button.addEventListener("mouseover", buttonHover0);
 
@@ -181,13 +180,13 @@ function isDark () {
     search_input.style.background = gris;
     search_input.style.color = blanco;
     search_container.style.borderColor = blanco;
-    search_icon.style.background = 'url("./assets/icon-search-mod-noc.svg")';   
+    search_icon.style.background = 'url("./assets/icon-search-mod-noc.svg")';
+    search_icon_focus.src = "./assets/icon-search-mod-noc.svg";
+    search_icon_focus.style.visibility = "hidden";   
     trending_text.style.color = blanco;
     trending_text_a.style.color = blanco;
     trending_text_p.style.color = blanco;
-    for(let i = 0; i < search_icon_onfocus.length; i++){
-        search_icon_onfocus[i].src = "./assets/icon-search-mod-noc.svg";
-        }
+    
     trending_gifos.style.background = negro2;
     trending_gifos.style.color = blanco;
     trending_gifos_title.style.color = blanco;
@@ -271,12 +270,12 @@ function notDark () {
     search_input.style.color = negro;
     search_container.style.borderColor = lila;
     search_icon.style.background = 'url("./assets/icon-search.svg")';
+    search_icon_focus.src = "./assets/icon-search.svg";
+    search_icon_focus.style.visibility = "hidden"; 
     trending_text.style.color = lila;
     trending_text_a.style.color = lila;
     trending_text_p.style.color = lila;
-    for(let i = 0; i < search_icon_onfocus.length; i++){
-        search_icon_onfocus[i].src = "./assets/icon-search.svg";
-        }
+    
     trending_gifos.style.background = "#F3F5F8";
     trending_gifos.style.color = negro;
     trending_gifos_title.style.color = lila;
@@ -340,12 +339,14 @@ function changeIcon() {
         }else {
             search_icon.style.background = 'url("./assets/close.svg")';
             search_icon.style.backgroundRepeat = "no-repeat";
-            search_icon_focus.style.visibility = "visible"; 
+            search_icon_focus.style.visibility = "visible";
+            search_icon_focus.src = "./assets/icon-search.svg"; 
         }
     } else {
         if(dark) {
             search_icon.style.background = 'url("./assets/close-modo-noct.svg")';
             search_icon.style.backgroundRepeat = "no-repeat";
+            search_icon.style.marginTop = "5px";
             search_icon_focus.style.visibility = "visible";
             search_icon_focus.src = "./assets/icon-search-mod-noc.svg";
             search_icon_focus.style.display = "none";
@@ -353,6 +354,7 @@ function changeIcon() {
         }else {
             search_icon.style.background = 'url("./assets/close.svg")';
             search_icon.style.backgroundRepeat = "no-repeat";
+            search_icon.style.marginTop = "5px";
             search_icon_focus.style.visibility = "visible";
             search_icon_focus.style.display = "none"; 
         }
@@ -366,11 +368,13 @@ function changeIcon() {
 function notChangeIcon () {
     if(dark) {
         search_icon.style.background = 'url("./assets/icon-search-mod-noc.svg")';
+        search_icon.style.marginTop = "0";
         search_icon_focus.src = "./assets/icon-search.svg";
         search_icon_focus.style.visibility = "hidden";  
     }
     else {
         search_icon.style.background = 'url("./assets/icon-search.svg")';
+        search_icon.style.marginTop = "0";
         search_icon.style.backgroundRepeat = "no-repeat";
         search_icon_focus.style.visibility = "hidden";  
     } 

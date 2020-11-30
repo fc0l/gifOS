@@ -1,4 +1,4 @@
-import { api_key } from './input.js';
+import { api_key, url_fav, url_fav_active } from './input.js';
 
 export const navbar_favoritos = document.getElementById("navbar-favoritos");
 export const navbar_mis_gifos = document.getElementById("navbar-mis-gifos");
@@ -12,7 +12,7 @@ navbar_mis_gifos.addEventListener("click", ventana_mis_gifos);
 navbar_button_crear.addEventListener("click", ventana_crear_gifo);
 
 const header = document.getElementById("header");
-const search_container = document.getElementById("search-container");
+export const search_container = document.getElementById("search-container");
 const treding_text = document.getElementById("trending-text");
 const favoritos = document.getElementById("favoritos");
 const favoritos_sin_contenido = document.getElementById("favoritos-sin-contenido");
@@ -22,19 +22,29 @@ const crear_gifo_1 = document.getElementById("crear-gifo-1");
 const results_gifos = document.getElementById("results-gifos");
 export const sin_resultados_gifos = document.getElementById("sin-resultados-gifos");
 const trending_gifos = document.getElementById("trending-gifos");
-const gifmax = document.getElementById("gifmax");
+export const gifmax = document.getElementById("gifmax");
+const gifmax_close = document.getElementById("gifmax-close");
+const favoritos_container = document.getElementById("favoritos-container");
+const img_gifmax = document.getElementById("img-gifmax");
+
+gifmax_close.addEventListener("click", gifmax_none);
+function gifmax_none () {
+    gifmax.style.display = "none";
+    document.body.style.overflow = "visible";
+    img_gifmax.src = "";
+}
 
 
 const matriz = [];
 
 function ventana_favoritos() {
 
-    let stringId = localStorage.getItem("favoritos").split(',').slice(1);
-    console.log(stringId.toString());
-
+    let stringId = localStorage.getItem("favoritos").split(',');
 
     
-    if (stringId.length > 0){
+
+    
+    if (stringId.length > 1){
         header.style.display = "none";
         favoritos_sin_contenido.style.display = "none";
         search_container.style.display = "none";
@@ -51,8 +61,41 @@ function ventana_favoritos() {
         fetch(`https://api.giphy.com/v1/gifs?api_key=${api_key}&ids=${stringId}`)
         .then(resp => resp.json())
         .then(json => {
-            favoritos
-            
+            favoritos_container.innerHTML = "";
+            for(let i = 0; i < json.data.length; i++){
+                
+                favoritos_container.innerHTML += `
+                <div class="results-gifos-box" id="${i}">
+                        <img src="${json.data[i].images.downsized.url}" alt="Gifs favoritos" id="${json.data[i].id}">
+                        <div class="wrapper"></div>
+                        <div class="gifos-box-buttons display">
+                            <div class="gifos-box-button1"
+                            style="
+                            background:${url_fav_active};
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                            "
+                            onclick=
+                            "                     
+                            
+                            localStorage.setItem('favoritos', localStorage.getItem('favoritos'));
+
+                            let arr = localStorage.getItem('favoritos').split(',');
+                            let arr_index = arr.indexOf(this.parentNode.parentNode.childNodes[1].id)
+                            arr.splice(arr_index, 1);                               localStorage.setItem('favoritos', arr.toString());
+                            this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
+                            
+                            "></div>                            
+                            <div class="gifos-box-button2"></div>
+                            <div class="gifos-box-button3"></div>
+                        </div>
+                        <div class="gifos-box-text display">
+                            <p class="user">${json.data[i].username}</p>
+                            <p class="title">${json.data[i].title}</p>
+                        </div>
+                </div>
+                `
+            }           
         });
 
     } else {

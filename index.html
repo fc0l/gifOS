@@ -34,20 +34,8 @@
     <div class="favoritos" id="favoritos">
         <img src="./assets/icon-favoritos.svg" alt="Favoritos">
         <h2 class="favoritos-h2" id="favoritos-h2">Favoritos</h2>
-        <div class="results-gifos-container"> 
-            <div class="results-gifos-box">
-                    <img src="./test/1.jpg" alt="">
-                    <div class="wrapper"></div>
-                    <div class="gifos-box-buttons display">
-                        <div class="gifos-box-button1"></div>
-                        <div class="gifos-box-button2"></div>
-                        <div class="gifos-box-button3"></div>
-                    </div>
-                    <div class="gifos-box-text display">
-                        <p class="user ">User</p>
-                        <p class="title ">Titulo</p>
-                    </div>
-            </div>
+        <div class="results-gifos-container" id="favoritos-container"> 
+            
         </div>
         <button class="results-gifos-button" id="favoritos-vermas"></button>
     </div>
@@ -314,12 +302,12 @@
             <button class="trending-gifos-body-button-left" id="gifmax-left"></button>
             <div class="gifmax-box-container">
                 <div>
-                    <img src="./test/1.jpg" alt="Gif maximized">
+                    <img src="" alt="Gif maximized" id="img-gifmax" data-id="">
                 </div>
                 <div class="gifmax-navbar">
                     <div class="gifmax-text" id="gifmax-text">
-                            <p class="gifmax-user">User</p>
-                            <p class="gifmax-title">Titulo</p>
+                            <p class="gifmax-user" id="gifmax-user"></p>
+                            <p class="gifmax-title" id="gifmax-title"></p>
                     </div>
                     <div class="gifmax-buttons">
                         <div class="gifmax-button1" id="gifmax-button1"></div>
@@ -347,12 +335,15 @@
     </div>
     </footer>
     
+    <script src="index.js" type="module"></script>
     <script src="./modules/trendingText.js" type="module"></script>
+    <script src="./modules/gifmaxClose.js" type="module"></script>
+    <script src="./modules/trendingGifos.js" type="module"></script>
     <script src="./modules/routes.js" type="module"></script>
     <script src="./modules/verMas.js" type="module"></script>
     <script src="./modules/input.js" type="module"></script>
     <script src="./modules/darkmode.js" type="module"></script>
-    <script src="index.js" type="module"></script>
+    
 
 </body>
 </html>
