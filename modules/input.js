@@ -1,4 +1,4 @@
-import { mobile, trending_text, results_gifos_h2, results_gifos_h2_w } from "./darkmode.js";
+import { mobile, trending_text, results_gifos_h2, results_gifos_h2_w, results_gifos_vermas } from "./darkmode.js";
 import { sin_resultados_gifos } from "./routes.js";
 import { img_gifmax } from "./trendingText.js";
 
@@ -23,7 +23,8 @@ localStorage.setItem("favoritos", localStorage.getItem("favoritos"));
 
 
 export function sugerencias_active(e) {
-
+    results_gifos_vermas.style.display = "block";
+    localStorage.setItem('gifmax_results', false);
     if (e.target.value) {
         if (mobile) {
             search_results.style.display = "none";
@@ -55,13 +56,11 @@ export function sugerencias_active(e) {
                             sin_resultados_gifos.style.display = "block";
                             results_gifos_h2_w.innerHTML = `${e.target.value}`;
                         }
-
                     })
             }
             catch (error) {
                 console.log(error);
             }
-
         }
         else {
             search_results.style.display = "block";
@@ -93,16 +92,13 @@ export function sugerencias_active(e) {
                             for (let i = 0; i < json.data.length; i++) {
                                 search_sugg[i].addEventListener('click', clean_input);
                             }
-                            function clean_input() 
-                            {
+                            function clean_input() {
                                 search_input.value = this.textContent;
                                 search_results.style.display = "none";
                                 fetch(`https://api.giphy.com/v1/gifs/search?api_key=${api_key}&q=${this.textContent}&limit=12&offset=0&rating=g&lang=en`)
                                     .then(resp => resp.json())
-                                    .then(json => 
-                                        {
-                                        if (json.data.length > 0) 
-                                        {
+                                    .then(json => {
+                                        if (json.data.length > 0) {
 
                                             sin_resultados_gifos.style.display = "none";
                                             trending_text.style.display = "none";
@@ -142,6 +138,7 @@ export function sugerencias_active(e) {
                                 <div class="gifos-box-button3" 
                                 onclick= 
                                 "
+                                
                                 let id_img = '${json.data[i].id}';
                                 const gifmaxx = document.getElementById('gifmax');
                                 const img_gifmax = document.getElementById('img-gifmax');
@@ -150,7 +147,8 @@ export function sugerencias_active(e) {
                                 const button1_gifmax = document.getElementById('gifmax-button1');
                                 gifmaxx.style.display = 'block';
                                 img_gifmax.src = this.parentNode.parentNode.childNodes[0].src;
-                                img_gifmax.dataset.id = '${json.data[i].id}';                              
+                                img_gifmax.dataset.id = '${json.data[i].id}';
+                                img_gifmax.dataset.number = '${i}';                              
                                 user_gifmax.innerHTML = '${json.data[i].username}';
                                 title_gifmax.innerHTML = '${json.data[i].title}';
                                 if (localStorage.getItem('favoritos').split(',').includes('${json.data[i].id}')) {
@@ -180,8 +178,7 @@ export function sugerencias_active(e) {
                                                     button1[i].style.background = "url('../assets/icon-fav-active2.svg')";
 
 
-                                                } else 
-                                                {
+                                                } else {
 
                                                     button1[i].style.background = "url('../assets/icon-fav.svg')";
                                                 }
@@ -198,8 +195,6 @@ export function sugerencias_active(e) {
 
                                     })
                             }
-
-
                         }
                     })
             }
@@ -210,19 +205,14 @@ export function sugerencias_active(e) {
             try {
                 fetch(`https://api.giphy.com/v1/gifs/search?api_key=${api_key}&q=${e.target.value}&limit=12&offset=0&rating=g&lang=en`)
                     .then(resp => resp.json())
-                    .then(json => 
-                    {
+                    .then(json => {
                         if (json.data.length > 0) {
 
                             sin_resultados_gifos.style.display = "none";
                             trending_text.style.display = "none";
                             results_gifos.style.display = "block";
                             results_gifos_container.innerHTML = "";
-                            
-
                             for (let i = 0; i < json.data.length; i++) {
-
-                                
                                 results_gifos_h2.innerHTML = `${e.target.value}`;
                                 results_gifos_container.innerHTML += `<div class="results-gifos-box" id="${json.data[i].id}"><img src="${json.data[i].images.downsized.url}" alt="Gif" id="${json.data[i].id}"><div class="wrapper"></div><div class="gifos-box-buttons display"><div class="gifos-box-button1 ad-fav" 
                                 onclick=
@@ -230,8 +220,7 @@ export function sugerencias_active(e) {
                                 localStorage.setItem('favoritos', localStorage.getItem('favoritos'));
 
                                 if (!localStorage.getItem('favoritos').split(',').includes(this.parentNode.parentNode.childNodes[0].id)) 
-                                {
-                                    
+                                {                                   
 
                                     localStorage.setItem('favoritos', localStorage.getItem('favoritos') + ',' + this.parentNode.parentNode.childNodes[0].id);
                                     this.style.background = '${url_fav_active}';
@@ -262,6 +251,7 @@ export function sugerencias_active(e) {
                                 <div class="gifos-box-button3" 
                                 onclick= 
                                 "
+                                localStorage.setItem('gifmax_results', true);
                                 let id_img = '${json.data[i].id}';
                                 const gifmaxx = document.getElementById('gifmax');
                                 const img_gifmax = document.getElementById('img-gifmax');
@@ -270,7 +260,8 @@ export function sugerencias_active(e) {
                                 const button1_gifmax = document.getElementById('gifmax-button1');
                                 gifmaxx.style.display = 'block';
                                 img_gifmax.src = this.parentNode.parentNode.childNodes[0].src;
-                                img_gifmax.dataset.id = '${json.data[i].id}';                              
+                                img_gifmax.dataset.id = '${json.data[i].id}';
+                                img_gifmax.dataset.number = '${i}';                              
                                 user_gifmax.innerHTML = '${json.data[i].username}';
                                 title_gifmax.innerHTML = '${json.data[i].title}';
                                 if (localStorage.getItem('favoritos').split(',').includes('${json.data[i].id}')) {
@@ -295,7 +286,7 @@ export function sugerencias_active(e) {
                                 <p class="title ">${json.data[i].title}</p>
                             </div></div>`;
 
-                                let button1 = document.getElementsByClassName("ad-fav");                                
+                                let button1 = document.getElementsByClassName("ad-fav");
                                 if (localStorage.getItem('favoritos').split(',').includes(json.data[i].id)) {
                                     button1[i].style.background = "url('../assets/icon-fav-active2.svg')";
                                 }
@@ -305,30 +296,6 @@ export function sugerencias_active(e) {
 
 
                             }
-                            const button_fav = document.getElementById("gifmax-button1");
-                            
-                            button_fav.addEventListener("click", add_fav);
-                            function add_fav() {
-                                
-                                if (!localStorage.getItem('favoritos').split(',').includes(img_gifmax.dataset.id)) {
-
-                                    localStorage.setItem('favoritos', localStorage.getItem('favoritos') + ',' + img_gifmax.dataset.id);
-                                    button_fav.style.background = "url('../assets/icon-fav-active2.svg')";
-                                    button_fav.style.backgroundRepeat = 'no-repeat';
-                                    button_fav.style.backgroundSize = 'contain';
-                                    button_fav.style.backgroundColor = 'white';
-                                    button_fav.style.borderRadius = '5px';
-                                }
-                                else {
-                                    let arr = localStorage.getItem('favoritos').split(',');
-                                    let arr_index = arr.indexOf(img_gifmax.dataset.id);
-                                    arr.splice(arr_index, 1);
-                                    localStorage.setItem('favoritos', arr.toString());
-                                    button_fav.style.background = "url('../assets/icon-fav.svg')";
-                                }
-                            }
-
-                            
                         }
                         else {
                             results_gifos.style.display = "none";

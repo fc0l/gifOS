@@ -1,6 +1,7 @@
-import { trending_text, trending_text_a, results_gifos_h2 } from "./darkmode.js";
+import { trending_text, trending_text_a, results_gifos_h2, results_gifos_vermas } from "./darkmode.js";
 import { search_input, search_results, api_key, results_gifos, results_gifos_container, url_fav, url_fav_active} from './input.js';
 import { sin_resultados_gifos } from './routes.js';
+import { click_r, gifmax_right } from './sliderGifos.js';
 
 export const img_gifmax = document.getElementById("img-gifmax");
 
@@ -39,14 +40,14 @@ async function trending_updates ()
                 .then(resp => resp.json())
                 .then(json => {
                     if (json.data.length > 0) {
-
+                        results_gifos_vermas.style.display = "block";
                         sin_resultados_gifos.style.display = "none";
                         trending_text.style.display = "none";
                         results_gifos.style.display = "block";
                         results_gifos_container.innerHTML = "";
                         for (let i = 0; i < json.data.length; i++) {
                             results_gifos_h2.innerHTML = this.textContent;
-                            results_gifos_container.innerHTML += `<div class="results-gifos-box" id="${json.data[i].id}"><img src="${json.data[i].images.downsized.url}" alt="Gif" id="${json.data[i].id}"><div class="wrapper"></div><div class="gifos-box-buttons display"><div class="gifos-box-button1 ad-fav" 
+                            results_gifos_container.innerHTML += `<div class="results-gifos-box" id="${json.data[i].id}" data-number= "${i}"><img src="${json.data[i].images.downsized.url}" alt="Gif" id="${json.data[i].id}"><div class="wrapper"></div><div class="gifos-box-buttons display"><div class="gifos-box-button1 ad-fav" 
                                 onclick=
                                 "
                                 localStorage.setItem('favoritos', localStorage.getItem('favoritos'));
@@ -83,7 +84,7 @@ async function trending_updates ()
                                 <div class="gifos-box-button3" 
                                 onclick= 
                                 "
-                                
+                                localStorage.setItem('gifmax_results', true);
                                 const gifmax = document.getElementById('gifmax');
                                 const user_gifmax = document.getElementById('gifmax-user');
                                 const title_gifmax = document.getElementById('gifmax-title');
@@ -91,6 +92,7 @@ async function trending_updates ()
                                 gifmax.style.display = 'block';
                                 const img_gifmax = document.getElementById('img-gifmax');
                                 img_gifmax.src = this.parentNode.parentNode.childNodes[0].src;
+                                img_gifmax.dataset.number = '${i}';
                                 img_gifmax.dataset.id = '${json.data[i].id}'; 
                                 user_gifmax.innerHTML = '${json.data[i].username}';
                                 title_gifmax.innerHTML = '${json.data[i].title}';
@@ -125,28 +127,7 @@ async function trending_updates ()
                             }
 
                         }
-                        const button_fav = document.getElementById("gifmax-button1");
-                            
-                            button_fav.addEventListener("click", add_fav);
-                            function add_fav() {
-                                
-                                if (!localStorage.getItem('favoritos').split(',').includes(img_gifmax.dataset.id)) {
-
-                                    localStorage.setItem('favoritos', localStorage.getItem('favoritos') + ',' + img_gifmax.dataset.id);
-                                    button_fav.style.background = "url('../assets/icon-fav-active2.svg')";
-                                    button_fav.style.backgroundRepeat = 'no-repeat';
-                                    button_fav.style.backgroundSize = 'contain';
-                                    button_fav.style.backgroundColor = 'white';
-                                    button_fav.style.borderRadius = '5px';
-                                }
-                                else {
-                                    let arr = localStorage.getItem('favoritos').split(',');
-                                    let arr_index = arr.indexOf(img_gifmax.dataset.id);
-                                    arr.splice(arr_index, 1);
-                                    localStorage.setItem('favoritos', arr.toString());
-                                    button_fav.style.background = "url('../assets/icon-fav.svg')";
-                                }
-                            }
+                        
 
                     }
                     else {

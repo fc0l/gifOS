@@ -1,5 +1,5 @@
 import { results_gifos_vermas } from "./darkmode.js";
-import { search_input , api_key, results_gifos_container, url_fav, url_fav_active} from "./input.js";
+import { search_input , api_key, results_gifos_container, url_fav, url_fav_active, search_icon} from "./input.js";
 
 
 
@@ -7,8 +7,9 @@ import { search_input , api_key, results_gifos_container, url_fav, url_fav_activ
 results_gifos_vermas.addEventListener("click", ver_mas_resultados);
 
 search_input.addEventListener("keydown", modify_limit);
+search_icon.addEventListener("click", modify_limit);
 
-let limit_i = 12;
+export let limit_i = 12;
 let limit_f = 13;
 let offset = 12;
 
@@ -22,13 +23,12 @@ function modify_limit () {
 
 async function ver_mas_resultados (e)
 {
+    
     const req = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${api_key}&q=${search_input.value}&limit=${limit_f}&offset=0&rating=g&lang=en`);
     const resp = await req.json();
     const resp_size = resp.data.length;
     
-    if(resp_size > limit_i) {
-
-        
+    if(resp_size > limit_i) {       
 
         const request = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${api_key}&q=${search_input.value}&limit=12&offset=${offset}&rating=g&lang=en`);
         const json = await request.json();
@@ -77,7 +77,7 @@ async function ver_mas_resultados (e)
                         <div class="gifos-box-button3" 
                         onclick= 
                                 "
-                                
+                                localStorage.setItem('gifmax_results', true);
                                 const gifmax = document.getElementById('gifmax');
                                 const user_gifmax = document.getElementById('gifmax-user');
                                 const title_gifmax = document.getElementById('gifmax-title');
@@ -85,7 +85,8 @@ async function ver_mas_resultados (e)
                                 gifmax.style.display = 'block';
                                 const img_gifmax = document.getElementById('img-gifmax');
                                 img_gifmax.src = this.parentNode.parentNode.childNodes[1].src;
-                                img_gifmax.dataset.id = '${json.data[i].id}'; 
+                                img_gifmax.dataset.id = '${json.data[i].id}';
+                                img_gifmax.dataset.number = '${limit_i+i}'; 
                                 user_gifmax.innerHTML = '${json.data[i].username}';
                                 title_gifmax.innerHTML = '${json.data[i].title}';
                                 if (localStorage.getItem('favoritos').split(',').includes('${json.data[i].id}')) {
@@ -125,7 +126,17 @@ async function ver_mas_resultados (e)
             offset = offset + response_size;
         }
         
+        const req = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${api_key}&q=${search_input.value}&limit=50&offset=0&rating=g&lang=en`);
+        const resp = await req.json();
+        const resp_size = resp.data.length;
+        if(resp_size < limit_i)
+        {
+            results_gifos_vermas.style.display = "none";
+        }
+        
     } else {
         e.preventDefault();
+        results_gifos_vermas.style.display = "none";
     }
 }
+

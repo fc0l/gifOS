@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style/style.css">
+    <link rel="shortcut icon" href="./assets/Logo-modo-noc.svg" type="image/x-icon">
     <title>gifOS</title>
 </head>
 <body>
@@ -251,46 +252,8 @@
         </div>
         <div class="trending-gifos-body">
             <button class="trending-gifos-body-button-left" id="button-mod-noc"></button>
-            <div class="gifos-box-container">
-                <div class="gifos-box">
-                    <img src="./test/1.jpg" alt="">
-                    <div class="wrapper"></div>
-                    <div class="gifos-box-buttons display">
-                        <div class="gifos-box-button1"></div>
-                        <div class="gifos-box-button2"></div>
-                        <div class="gifos-box-button3"></div>
-                    </div>
-                    <div class="gifos-box-text display">
-                        <p class="user ">User</p>
-                        <p class="title ">Titulo</p>
-                    </div>
-                </div>
-                <div class="gifos-box">
-                    <img src="./test/2.png" alt="">
-                    <div class="wrapper"></div>
-                    <div class="gifos-box-buttons display">
-                        <div class="gifos-box-button1"></div>
-                        <div class="gifos-box-button2"></div>
-                        <div class="gifos-box-button3"></div>
-                    </div>
-                    <div class="gifos-box-text display">
-                        <p class="user ">User</p>
-                        <p class="title ">Titulo</p>
-                    </div>
-                </div>
-                <div class="gifos-box">
-                    <img src="./test/3.jpg" alt="">
-                    <div class="wrapper"></div>
-                    <div class="gifos-box-buttons display">
-                        <div class="gifos-box-button1"></div>
-                        <div class="gifos-box-button2"></div>
-                        <div class="gifos-box-button3"></div>
-                    </div>
-                    <div class="gifos-box-text display">
-                        <p class="user">User</p>
-                        <p class="title">Titulo</p>
-                    </div>
-                </div>
+            <div class="gifos-box-container" id="trending-gifos-container">
+                
             </div>
             <button class="trending-gifos-body-button-right" id="button-mod-noc2"></button>
         </div>
@@ -302,7 +265,7 @@
             <button class="trending-gifos-body-button-left" id="gifmax-left"></button>
             <div class="gifmax-box-container">
                 <div>
-                    <img src="" alt="Gif maximized" id="img-gifmax" data-id="">
+                    <img src="" alt="Gif maximized" id="img-gifmax" data-id="" data-number="">
                 </div>
                 <div class="gifmax-navbar">
                     <div class="gifmax-text" id="gifmax-text">
@@ -339,8 +302,12 @@
     <script src="./modules/trendingText.js" type="module"></script>
     <script src="./modules/gifmaxClose.js" type="module"></script>
     <script src="./modules/trendingGifos.js" type="module"></script>
+    <script src="./modules/sliderGifos.js" type="module"></script>
+    <script src="./modules/gifmaxFav.js" type="module"></script>
+    <script src="./modules/gifmaxDownload.js" type="module"></script>
     <script src="./modules/routes.js" type="module"></script>
     <script src="./modules/verMas.js" type="module"></script>
+    <script src="./modules/verMasFav.js" type="module"></script>
     <script src="./modules/input.js" type="module"></script>
     <script src="./modules/darkmode.js" type="module"></script>
     
