@@ -42,7 +42,7 @@ export async function click_r ()
         }
         if (localStorage.getItem('favoritos').split(',').includes(img_gifmax.dataset.id)) 
         {
-            button_fav.style.background = "url('../assets/icon-fav-active2.svg')";
+            button_fav.style.background = "url('./assets/icon-fav-active2.svg')";
             button_fav.style.backgroundRepeat = 'no-repeat';
             button_fav.style.backgroundSize = 'contain';
             button_fav.style.backgroundColor = 'white';
@@ -50,7 +50,7 @@ export async function click_r ()
         }
         else 
         {
-            button_fav.style.background = "url('../assets/icon-fav.svg')";
+            button_fav.style.background = "url('./assets/icon-fav.svg')";
         }
     }
     if(localStorage.getItem("gifmax_trend") == "true")
