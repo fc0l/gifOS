@@ -170,9 +170,9 @@ function isDark () {
     }
 
     if(ventana_activa_crear_gifo){
-        navbar_button.style.background = 'url("../assets/CTA-crear-gifo-active.svg")';
+        navbar_button.style.background = 'url("./assets/CTA-crear-gifo-active.svg")';
     } else {
-        navbar_button.style.background = "url('../assets/CTA-crear-gifo-modo-noc.svg')";
+        navbar_button.style.background = "url('./assets/CTA-crear-gifo-modo-noc.svg')";
     }
 
     modo_nocturno.innerHTML = "MODO DIURNO";
@@ -190,8 +190,8 @@ function isDark () {
     trending_gifos.style.background = negro2;
     trending_gifos.style.color = blanco;
     trending_gifos_title.style.color = blanco;
-    button_noc_left.style.background = 'url("../assets/button-slider-left-md-noct.svg")';
-    button_noc_right.style.background = 'url("../assets/button-slider-right-md-noct.svg")';
+    button_noc_left.style.background = 'url("./assets/button-slider-left-md-noct.svg")';
+    button_noc_right.style.background = 'url("./assets/button-slider-right-md-noct.svg")';
     footer.style.color = blanco;
     footer.style.borderColor = negro;
     gifmax.style.background = negro2;
@@ -236,7 +236,7 @@ function isDark () {
     crear_gifo_content2.style.color = blanco;
     crear_gifo_content2p.style.color = blanco;
     nav_bar_burger.style.background = "url('./assets/burger-modo-noct.svg')";
-    nav_bar_cancel.style.background = "url('assets/close-modo-noct.svg')"; 
+    nav_bar_cancel.style.background = "url('./assets/close-modo-noct.svg')"; 
 }
 
 function notDark () {
@@ -259,9 +259,9 @@ function notDark () {
     }
 
     if(ventana_activa_crear_gifo) {
-        navbar_button.style.background = 'url("../assets/CTA-crear-gifo-active.svg")';
+        navbar_button.style.background = 'url("./assets/CTA-crear-gifo-active.svg")';
     } else {
-        navbar_button.style.background = 'url("../assets/button-crear-gifo.svg")';
+        navbar_button.style.background = 'url("./assets/button-crear-gifo.svg")';
     }
 
     modo_nocturno.innerHTML = "MODO NOCTURNO";
@@ -279,15 +279,15 @@ function notDark () {
     trending_gifos.style.background = "#F3F5F8";
     trending_gifos.style.color = negro;
     trending_gifos_title.style.color = lila;
-    button_noc_left.style.background = 'url("../assets/button-slider-left.svg")';
-    button_noc_right.style.background = 'url("../assets/Button-Slider-right.svg")';
+    button_noc_left.style.background = 'url("./assets/button-slider-left.svg")';
+    button_noc_right.style.background = 'url("./assets/Button-Slider-right.svg")';
     footer.style.color = negro;
     footer.style.borderColor = lila;
     gifmax.style.background = blanco;
     gifmax_close.style.background = "url('./assets/close.svg')";
     gifmax_text.style.color = negro;
-    gifmax_left.style.background = 'url("../assets/button-slider-left.svg")';
-    gifmax_right.style.background = 'url("../assets/Button-Slider-right.svg")';
+    gifmax_left.style.background = 'url("./assets/button-slider-left.svg")';
+    gifmax_right.style.background = 'url("./assets/Button-Slider-right.svg")';
     results_gifos_vermas.style.background = 'url("./assets/CTA-ver-mas.svg")';
     results_gifos_h2.style.color = lila;
     results_gifos_h2_w.style.color = lila;

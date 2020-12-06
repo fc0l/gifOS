@@ -10,7 +10,7 @@
         <g id="16-UI-Kit-Modo-Nocturno" transform="translate(-1230.000000, -502.000000)">
             <g id="CTA-crar-gifo-modo-noc" transform="translate(1230.000000, 502.000000)">
                 <circle id="Oval-3-Copy" fill="#FFFFFF" fill-rule="nonzero" cx="27" cy="27" r="27"></circle>
-                <mask id="mask-2" fill="white">
+                <mask id="mask-2" fill="#FFFFFF">
                     <use xlink:href="#path-1"></use>
                 </mask>
                 <use id="Combined-Shape" fill="#000000" fill-rule="nonzero" xlink:href="#path-1"></use>

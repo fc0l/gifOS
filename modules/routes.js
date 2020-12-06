@@ -23,12 +23,15 @@ export const gifmax = document.getElementById("gifmax");
 const gifmax_close = document.getElementById("gifmax-close");
 export const favoritos_container = document.getElementById("favoritos-container");
 export const img_gifmax = document.getElementById("img-gifmax");
+const gifos_logo = document.getElementById("logo-modo-noc");
 
+gifos_logo.addEventListener("click", changeValues);
 navbar_favoritos.addEventListener("click", ventana_favoritos);
 navbar_mis_gifos.addEventListener("click", ventana_mis_gifos);
 navbar_button_crear.addEventListener("click", ventana_crear_gifo);
 gifmax_close.addEventListener("click", gifmax_none);
 
+window.addEventListener('load', changeValues);
 
 function gifmax_none () {
     gifmax.style.display = "none";
@@ -37,6 +40,17 @@ function gifmax_none () {
 }
 
 const matriz = [];
+
+function changeValues () {
+    windowState(false, false, false);
+}
+function windowState (value_1, value_2, value_3)
+{
+    localStorage.setItem("fav_window", value_1);
+    localStorage.setItem("mg_window", value_2);
+    localStorage.setItem("cg_window", value_3);
+}
+
 
 export function ventana_favoritos() {
     ver_mas_favoritos.style.display = "block";
@@ -139,7 +153,11 @@ export function ventana_favoritos() {
             for (let i = 0; i < fav_count; i++) {
                 replace_card[i].addEventListener("click", () => 
                 {
-                    ventana_favoritos();
+                    console.log(json.data.length);
+                    if(json.data.length > 12)
+                    {
+                        ventana_favoritos();
+                    }                    
                 })  
             }        
         });
@@ -168,10 +186,10 @@ export function ventana_favoritos() {
         navbar_mis_gifos.style.color = "#572EE5";
         navbar_button_crear.style.background = 'url("./assets/button-crear-gifo.svg")';
     }
+    windowState(true, false, false);
     ventana_activa_fav = true;
     ventana_activa_mis_gifos = false;
     ventana_activa_crear_gifo = false;
-    
 };
 
 export function ventana_mis_gifos () {
@@ -212,6 +230,7 @@ export function ventana_mis_gifos () {
         navbar_favoritos.style.color = "#572EE5";
         navbar_button_crear.style.background = 'url("./assets/button-crear-gifo.svg")';
     }
+    windowState(false, true, false);
     
     ventana_activa_fav = false;
     ventana_activa_mis_gifos = true;
@@ -242,7 +261,9 @@ export function ventana_crear_gifo () {
         navbar_mis_gifos.style.color = "#572EE5";
         navbar_favoritos.style.color = "#572EE5";
     }
+    windowState(false, false, true);
     ventana_activa_fav = false;
     ventana_activa_mis_gifos = false;
     ventana_activa_crear_gifo = true;
 }
+

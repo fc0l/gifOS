@@ -1,5 +1,6 @@
 import { api_key, url_fav, url_fav_active } from './input.js';
 import { click_r, gifmax_right } from './sliderGifos.js';
+import { ventana_favoritos } from './routes.js';
 
 export const trending_cont = document.getElementById("trending-gifos-container");
 const button_r = document.getElementById("button-mod-noc2");
@@ -21,9 +22,12 @@ async function update_gifos ()
             <img src="${resp.data[i].images.downsized.url}" alt="Gif" id=${resp.data[i].id}>
                 <div class="wrapper"></div>
                 <div class="gifos-box-buttons display">
-                    <div class="gifos-box-button1 ad-fav"
+                    <div class="gifos-box-button1 ad-fav fav"
                     onclick=
                     "
+                        
+                        
+                        
                         if (!localStorage.getItem('favoritos').split(',').includes(this.parentNode.parentNode.childNodes[1].id))
                         {
                            localStorage.setItem('favoritos', localStorage.getItem('favoritos') + ',' + this.parentNode.parentNode.childNodes[1].id);
@@ -81,6 +85,12 @@ async function update_gifos ()
                     <p class="title ">${resp.data[i].title}</p>
                 </div>
         </div>`;
+        
+        
+        
+
+
+
         const sad = Array.from(trending_cont.childNodes);
         const das = sad.filter((sa) => {return sa.nodeName.includes("DIV")});
         let fav_b = das[i].childNodes[5].childNodes[1];
@@ -97,6 +107,15 @@ async function update_gifos ()
         {
             fav_b.style.background = '${url_fav}';
         }
+    }
+    const button1 = document.getElementsByClassName("fav");
+    for(let i= 0; i < button1.length; i++) {            
+            button1[i].addEventListener("click", () => {
+                if(localStorage.getItem("fav_window") == "true"){
+                    ventana_favoritos();
+                }
+        });
+        
     }
     
     
@@ -118,3 +137,4 @@ function scroll_l ()
         behavior: 'smooth'
     });
 }
+
