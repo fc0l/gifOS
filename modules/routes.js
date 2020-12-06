@@ -181,7 +181,7 @@ export function ventana_favoritos() {
 
     if(localStorage["dark_on_load"] === "true"){
         navbar_mis_gifos.style.color = "#FFFFFF";
-        navbar_button_crear.style.background = 'url("../assets/CTA-crear-gifo-modo-noc.svg")';
+        navbar_button_crear.style.background = 'url("./assets/CTA-crear-gifo-modo-noc.svg")';
     } else {
         navbar_mis_gifos.style.color = "#572EE5";
         navbar_button_crear.style.background = 'url("./assets/button-crear-gifo.svg")';
@@ -225,7 +225,7 @@ export function ventana_mis_gifos () {
 
     if(localStorage["dark_on_load"] === "true"){
         navbar_favoritos.style.color = "#FFFFFF";
-        navbar_button_crear.style.background = 'url("../assets/CTA-crear-gifo-modo-noc.svg")';
+        navbar_button_crear.style.background = 'url("./assets/CTA-crear-gifo-modo-noc.svg")';
     } else {
         navbar_favoritos.style.color = "#572EE5";
         navbar_button_crear.style.background = 'url("./assets/button-crear-gifo.svg")';
@@ -252,7 +252,7 @@ export function ventana_crear_gifo () {
     sin_resultados_gifos.style.display = "none";
     gifmax.style.display = "none";
 
-    navbar_button_crear.style.background = 'url("../assets/CTA-crear-gifo-active.svg")';
+    navbar_button_crear.style.background = 'url("./assets/CTA-crear-gifo-active.svg")';
 
     if (localStorage["dark_on_load"] === "true") {
         navbar_mis_gifos.style.color = "#FFFFFF";

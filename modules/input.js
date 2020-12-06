@@ -9,8 +9,8 @@ export const search_icon = document.getElementById("search-icon");
 export const results_gifos = document.getElementById("results-gifos");
 export const search_results = document.getElementById("search-results");
 export const results_gifos_container = document.getElementById("results-gifos-container");
-export const url_fav_active = "url(../assets/icon-fav-active2.svg)";
-export const url_fav = "url(../assets/icon-fav.svg)";
+export const url_fav_active = "url(./assets/icon-fav-active2.svg)";
+export const url_fav = "url(./assets/icon-fav.svg)";
 
 
 
@@ -175,12 +175,12 @@ export function sugerencias_active(e) {
 
                                                 if (localStorage.getItem('favoritos').split(',').includes(json.data[i].id)) {
 
-                                                    button1[i].style.background = "url('../assets/icon-fav-active2.svg')";
+                                                    button1[i].style.background = "url('./assets/icon-fav-active2.svg')";
 
 
                                                 } else {
 
-                                                    button1[i].style.background = "url('../assets/icon-fav.svg')";
+                                                    button1[i].style.background = "url('./assets/icon-fav.svg')";
                                                 }
 
                                             }
@@ -288,10 +288,10 @@ export function sugerencias_active(e) {
 
                                 let button1 = document.getElementsByClassName("ad-fav");
                                 if (localStorage.getItem('favoritos').split(',').includes(json.data[i].id)) {
-                                    button1[i].style.background = "url('../assets/icon-fav-active2.svg')";
+                                    button1[i].style.background = "url('./assets/icon-fav-active2.svg')";
                                 }
                                 else {
-                                    button1[i].style.background = "url('../assets/icon-fav.svg')";
+                                    button1[i].style.background = "url('./assets/icon-fav.svg')";
                                 }
 
 

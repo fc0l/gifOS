@@ -110,9 +110,9 @@ async function ver_mas_resultados (e)
             let button1 = document.getElementsByClassName("ad-fav");
 
             if (localStorage.getItem('favoritos').split(',').includes(json.data[i].id)) {
-                button1[i].style.background = "url('../assets/icon-fav-active2.svg')";
+                button1[i].style.background = "url('./assets/icon-fav-active2.svg')";
             } else {
-                button1[i].style.background = "url('../assets/icon-fav.svg')";
+                button1[i].style.background = "url('./assets/icon-fav.svg')";
             }
             
         }

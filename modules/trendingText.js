@@ -118,12 +118,12 @@ async function trending_updates ()
 
                             if (localStorage.getItem('favoritos').split(',').includes(json.data[i].id)) {
 
-                                button1[i].style.background = "url('../assets/icon-fav-active2.svg')";
+                                button1[i].style.background = "url('./assets/icon-fav-active2.svg')";
 
 
                             } else {
 
-                                button1[i].style.background = "url('../assets/icon-fav.svg')";
+                                button1[i].style.background = "url('./assets/icon-fav.svg')";
                             }
 
                         }
