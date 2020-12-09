@@ -22,8 +22,7 @@ function modify_limit () {
 
 
 async function ver_mas_resultados (e)
-{
-    
+{    
     const req = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${api_key}&q=${search_input.value}&limit=${limit_f}&offset=0&rating=g&lang=en`);
     const resp = await req.json();
     const resp_size = resp.data.length;

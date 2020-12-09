@@ -1,6 +1,6 @@
 import { mobile, trending_text, results_gifos_h2, results_gifos_h2_w, results_gifos_vermas } from "./darkmode.js";
 import { sin_resultados_gifos } from "./routes.js";
-import { img_gifmax } from "./trendingText.js";
+
 
 
 export const api_key = "2HgAvudoWdCgxf4i72FF9xf1m4N2VBib";
@@ -40,7 +40,37 @@ export function sugerencias_active(e) {
                             results_gifos_container.innerHTML = "";
                             for (let i = 0; i < json.data.length; i++) {
                                 results_gifos_h2.innerHTML = `${e.target.value}`;
-                                results_gifos_container.innerHTML += `<div class="results-gifos-box"><img src="${json.data[i].images.downsized.url}" alt="Gif"><div class="wrapper"></div><div class="gifos-box-buttons display">           <div class="gifos-box-button1"></div>
+                                results_gifos_container.innerHTML += `<div class="results-gifos-box" 
+                                onclick="
+                                if(${mobile}){
+                                    localStorage.setItem('gifmax_results', true);
+                                let id_img = '${json.data[i].id}';
+                                const gifmaxx = document.getElementById('gifmax');
+                                const img_gifmax = document.getElementById('img-gifmax');
+                                const user_gifmax = document.getElementById('gifmax-user');
+                                const title_gifmax = document.getElementById('gifmax-title');
+                                const button1_gifmax = document.getElementById('gifmax-button1');
+                                gifmaxx.style.display = 'block';
+                                
+                                img_gifmax.src = this.childNodes[0].src;
+                                img_gifmax.dataset.id = '${json.data[i].id}';
+                                img_gifmax.dataset.number = '${i}';                              
+                                user_gifmax.innerHTML = '${json.data[i].username}';
+                                title_gifmax.innerHTML = '${json.data[i].title}';
+                                if (localStorage.getItem('favoritos').split(',').includes('${json.data[i].id}')) {
+                                    
+                                    button1_gifmax.style.background = '${url_fav_active}';
+                                    button1_gifmax.style.backgroundRepeat = 'no-repeat';
+                                    button1_gifmax.style.backgroundSize = 'contain';
+                                    button1_gifmax.style.backgroundColor = 'white';
+                                    button1_gifmax.style.borderRadius = '5px';    
+                                }
+                                else {
+                                    
+                                    button1_gifmax.style.background = '${url_fav}';
+                                }
+                                }
+                                "><img src="${json.data[i].images.downsized.url}" alt="Gif"><div class="wrapper"></div><div class="gifos-box-buttons display">           <div class="gifos-box-button1"></div>
                                 <div class="gifos-box-button2"></div>
                                 <div class="gifos-box-button3"></div>
                             </div>

@@ -1,5 +1,5 @@
 import { img_gifmax } from './routes.js';
-import { favoritos_container } from './routes.js';
+
 
 export const button_fav = document.getElementById("gifmax-button1");
 

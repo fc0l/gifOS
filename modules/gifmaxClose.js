@@ -1,5 +1,5 @@
 import {results_gifos, url_fav_active, url_fav} from "./input.js";
-import { ventana_favoritos } from './routes.js';
+import { mobile } from './darkmode.js';
 
 
 const gifmax_close = document.getElementById("gifmax-close");
@@ -8,6 +8,8 @@ const gifos_box = document.getElementsByClassName("gifos-box");
 
 
 gifmax_close.addEventListener("click", gifmax_cerrar);
+
+
 function gifmax_cerrar() 
 {
     
@@ -36,11 +38,14 @@ function gifmax_cerrar()
         
         if(localStorage.getItem("favoritos").split(',').includes(gifos_filter[i].id))
         {
-            button_fav[i].style.background = `${url_fav_active}`;
-            button_fav[i].style.backgroundRepeat = 'no-repeat';
-            button_fav[i].style.backgroundSize = 'contain';
-            button_fav[i].style.backgroundColor = 'white';
-            button_fav[i].style.borderRadius = '5px';
+            if(!mobile){
+                button_fav[i].style.background = `${url_fav_active}`;
+                button_fav[i].style.backgroundRepeat = 'no-repeat';
+                button_fav[i].style.backgroundSize = 'contain';
+                button_fav[i].style.backgroundColor = 'white';
+                button_fav[i].style.borderRadius = '5px';
+            }
+            
         }
         else 
         {
@@ -56,10 +61,10 @@ function gifmax_cerrar()
     {
         localStorage.setItem('gifmax_results', 'false');
     }
-    // if(localStorage.getItem("gifmax_favoritos") == "true")
-    // {
-    //     localStorage.setItem('gifmax_favoritos', 'false');
-    //     ventana_favoritos();
-    // }
+    if(localStorage.getItem("gifmax_misgifos") == "true")
+    {
+        localStorage.setItem('gifmax_misgifos', 'false');
+    }
+    
 }
 

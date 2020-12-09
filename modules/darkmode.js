@@ -9,7 +9,7 @@ const modo_nocturno = document.getElementById("modo-nocturno");
 const logo = document.getElementById("logo");
 const logo_noc = document.getElementById("logo-modo-noc");
 const list_ul = document.getElementById("nav-bar-list-ul");
-const list = document.getElementById("nav-bar-list");
+export const list = document.getElementById("nav-bar-list");
 const navbar_mis_gifos = document.getElementById("navbar-mis-gifos");
 const navbar_favoritos = document.getElementById("navbar-favoritos");
 const navbar_button = document.getElementById("nav-bar-button");
@@ -44,27 +44,26 @@ const mis_gifos_vermas = document.getElementById("mis-gifos-vermas");
 const mis_gifos_sc_h2 = document.getElementById("mis-gifos-sc-h2");
 const crear_gifo_camara = document.getElementById("crear-gifo-camara1");
 const crear_gifo_cinta = document.getElementById("crear-gifo-cinta");
-const crear_gifo_h2 = document.getElementById("crear-gifo-h2");
-const crear_gifo_p = document.getElementById("crear-gifo-p");
-const crear_gifo_number1 = document.getElementById("crear-gifo-number1");
-const crear_gifo_number1_color = document.getElementById("crear-gifo-number1-color");
-const crear_gifo_number2 = document.getElementById("crear-gifo-number2");
-const crear_gifo_number2_color = document.getElementById("crear-gifo-number2-color");
-const crear_gifo_number3 = document.getElementById("crear-gifo-number3");
-const crear_gifo_number3_color = document.getElementById("crear-gifo-number3-color");
-const crear_gifo_barra = document.getElementById("crear-gifo-barra");
-const crear_gifo_comenzar = document.getElementById("crear-gifo-comenzar");
-const crear_gifo_grabar = document.getElementById("crear-gifo-grabar");
-const crear_gifo_finalizar = document.getElementById("crear-gifo-finalizar");
-const crear_gifo_subir = document.getElementById("crear-gifo-subir");
-const crear_gifo_time = document.getElementById("crear-gifo-time");
-const crear_gifo_repetir = document.getElementById("crear-gifo-repetir");
-const crear_gifo_content2 = document.getElementById("crear-gifo-content2");
-const crear_gifo_content2p = document.getElementById("crear-gifo-content2p");
-const nav_bar_burger = document.getElementById("nav-bar-burger");
-const nav_bar_cancel = document.getElementById("nav-bar-cancel");
+export const crear_gifo_h2 = document.getElementById("crear-gifo-h2");
+export const crear_gifo_p = document.getElementById("crear-gifo-p");
+export const crear_gifo_number1 = document.getElementById("crear-gifo-number1");
+export const crear_gifo_number1_color = document.getElementById("crear-gifo-number1-color");
+export const crear_gifo_number2 = document.getElementById("crear-gifo-number2");
+export const crear_gifo_number2_color = document.getElementById("crear-gifo-number2-color");
+export const crear_gifo_number3 = document.getElementById("crear-gifo-number3");
+export const crear_gifo_number3_color = document.getElementById("crear-gifo-number3-color");
+export const crear_gifo_barra = document.getElementById("crear-gifo-barra");
+export const crear_gifo_comenzar = document.getElementById("crear-gifo-comenzar");
+export const crear_gifo_grabar = document.getElementById("crear-gifo-grabar");
+export const crear_gifo_finalizar = document.getElementById("crear-gifo-finalizar");
+export const crear_gifo_subir = document.getElementById("crear-gifo-subir");
+export const crear_gifo_time = document.getElementById("crear-gifo-time");
+export const crear_gifo_repetir = document.getElementById("crear-gifo-repetir");
+export const crear_gifo_content2 = document.getElementById("crear-gifo-content2");
+export const crear_gifo_content2p = document.getElementById("crear-gifo-content2p");
+export const nav_bar_burger = document.getElementById("nav-bar-burger");
+export const nav_bar_cancel = document.getElementById("nav-bar-cancel");
 export const mobile = window.matchMedia("(max-width: 767px)").matches;
-let dark_on_load = localStorage["dark_on_load"];
 
 
 
@@ -76,6 +75,18 @@ window.onload = function(){
     if(localStorage['dark_on_load'] == 'true') {
         isDark();
         dark = true;
+    }
+    if(localStorage.getItem("gifmax_trend") == "true")
+    {
+        localStorage.setItem('gifmax_trend', 'false');
+    }
+    if(localStorage.getItem("gifmax_results") == "true")
+    {
+        localStorage.setItem('gifmax_results', 'false');
+    }
+    if(localStorage.getItem("gifmax_misgifos") == "true")
+    {
+        localStorage.setItem('gifmax_misgifos', 'false');
     }
 }
 
@@ -147,7 +158,7 @@ function modoNocturno () {
         notDark();
         dark = false;
         localStorage['dark_on_load'] = 'false';
-    }    
+    }   
 }
 
 function isDark () {
@@ -236,7 +247,13 @@ function isDark () {
     crear_gifo_content2.style.color = blanco;
     crear_gifo_content2p.style.color = blanco;
     nav_bar_burger.style.background = "url('./assets/burger-modo-noct.svg')";
-    nav_bar_cancel.style.background = "url('./assets/close-modo-noct.svg')"; 
+    nav_bar_cancel.style.background = "url('./assets/close-modo-noct.svg')";
+    if(mobile){
+        list.style.background = negro;
+        list.style.opacity = "0.9";
+        list.style.color = blanco; 
+    }
+    
 }
 
 function notDark () {
@@ -245,17 +262,26 @@ function notDark () {
     logo.style.display = "block";
     logo_noc.style.display = "none";
     list_ul.style.color = lila;
-
+    
     if(ventana_activa_fav) {
         navbar_favoritos.style.color = "#9CAFC3";
     } else {
-        navbar_favoritos.style.color = lila;
+        if(mobile){
+            navbar_favoritos.style.color = blanco;
+        }else {
+            navbar_favoritos.style.color = lila;
+        }
     }
 
     if(ventana_activa_mis_gifos) {
         navbar_mis_gifos.style.color = "#9CAFC3";
     } else {
-        navbar_mis_gifos.style.color = lila;
+        if(mobile){
+            navbar_mis_gifos.style.color = blanco;
+        }else{
+            navbar_mis_gifos.style.color = lila;
+        }
+       
     }
 
     if(ventana_activa_crear_gifo) {
@@ -274,8 +300,7 @@ function notDark () {
     search_icon_focus.style.visibility = "hidden"; 
     trending_text.style.color = lila;
     trending_text_a.style.color = lila;
-    trending_text_p.style.color = lila;
-    
+    trending_text_p.style.color = lila;    
     trending_gifos.style.background = "#F3F5F8";
     trending_gifos.style.color = negro;
     trending_gifos_title.style.color = lila;
@@ -325,7 +350,13 @@ function notDark () {
     crear_gifo_content2.style.color = lila;
     crear_gifo_content2p.style.color = negro;   
     nav_bar_burger.style.background = "url('./assets/burger.svg')";
-    nav_bar_cancel.style.background = "url('assets/close.svg')";    
+    nav_bar_cancel.style.background = "url('assets/close.svg')";
+    if(mobile){
+        list.style.background = lila;
+        list.style.opacity = "0.98";
+        list.style.color = blanco; 
+    }
+       
 }
 
 function changeIcon() {
@@ -570,20 +601,4 @@ function buttonNoHover4 () {
 }
 
 
-function menu_modo_noc () {
-    if(mobile){
-        if((dark_on_load==="true")) {
-            list.style.background = negro;
-            list.style.opacity = "1";
-            console.log(x && localStorage["dark_on_load"]);
-            body.style.overflow = "hidden";
-        } else {
-            list.style.background = lila;
-            list.style.opacity = "0.9";
-        }
-    } else {
-        list.style.background = "none";
-        body.style.overflow = "visible";
-    }
-}
 

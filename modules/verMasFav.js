@@ -1,5 +1,4 @@
 import { api_key, url_fav, url_fav_active} from "./input.js";
-import { results_gifos_vermas } from "./darkmode.js";
 import { favoritos_container, navbar_favoritos } from './routes.js';
 
 const ver_mas_favoritos = document.getElementById("favoritos-vermas");
@@ -23,7 +22,6 @@ function modify_limit () {
 async function verMasFavoritos (e)
 {
     let stringId = localStorage.getItem("favoritos").split(',');
-    console.log(stringId.length);
     const req = await fetch(`https://api.giphy.com/v1/gifs?api_key=${api_key}&ids=${stringId}`);
     const json = await req.json();
     let json_size = json.data.length;

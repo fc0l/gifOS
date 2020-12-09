@@ -24,6 +24,8 @@
                     <hr>
                     <li id="navbar-mis-gifos" class="nav-bar-list-li">MIS GIFOS</li>
                     <hr>
+                    <li id="navbar-crear-gif" class="nav-bar-list-li">CREAR GIF</li>
+                    <hr>
                 </ul>
             </div>
             <div class="nav-bar-button" id="nav-bar-button"></div>
@@ -52,86 +54,7 @@
     <div class="mis-gifos" id="mis-gifos">
         <img src="./assets/icon-mis-gifos.svg" alt="Favoritos">
         <h2 class="favoritos-h2" id="mis-gifos-h2">Mis GIFOS</h2>
-        <div class="results-gifos-container"> 
-
-            <div class="results-gifos-box">
-                    <img src="./test/1.jpg" alt="">
-                    <div class="wrapper"></div>
-                    <div class="gifos-box-buttons display">
-                        <div class="gifos-box-button1"></div>
-                        <div class="gifos-box-button2"></div>
-                        <div class="gifos-box-button3"></div>
-                    </div>
-                    <div class="gifos-box-text display">
-                        <p class="user ">User</p>
-                        <p class="title ">Titulo</p>
-                    </div>
-            </div>
-            <div class="results-gifos-box">
-                    <img src="./test/2.png" alt="">
-                    <div class="wrapper"></div>
-                    <div class="gifos-box-buttons display">
-                        <div class="gifos-box-button1"></div>
-                        <div class="gifos-box-button2"></div>
-                        <div class="gifos-box-button3"></div>
-                    </div>
-                    <div class="gifos-box-text display">
-                        <p class="user ">User</p>
-                        <p class="title ">Titulo</p>
-                    </div>
-            </div>
-            <div class="results-gifos-box">
-                    <img src="./test/3.jpg" alt="">
-                    <div class="wrapper"></div>
-                    <div class="gifos-box-buttons display">
-                        <div class="gifos-box-button1"></div>
-                        <div class="gifos-box-button2"></div>
-                        <div class="gifos-box-button3"></div>
-                    </div>
-                    <div class="gifos-box-text display">
-                        <p class="user">User</p>
-                        <p class="title">Titulo</p>
-                    </div>
-            </div>
-            <div class="results-gifos-box">
-                <img src="./test/3.jpg" alt="">
-                <div class="wrapper"></div>
-                <div class="gifos-box-buttons display">
-                    <div class="gifos-box-button1"></div>
-                    <div class="gifos-box-button2"></div>
-                    <div class="gifos-box-button3"></div>
-                </div>
-                <div class="gifos-box-text display">
-                    <p class="user">User</p>
-                    <p class="title">Titulo</p>
-                </div>
-            </div>
-            <div class="results-gifos-box">
-                <img src="./test/3.jpg" alt="">
-                <div class="wrapper"></div>
-                <div class="gifos-box-buttons display">
-                    <div class="gifos-box-button1"></div>
-                    <div class="gifos-box-button2"></div>
-                    <div class="gifos-box-button3"></div>
-                </div>
-                <div class="gifos-box-text display">
-                    <p class="user">User</p>
-                    <p class="title">Titulo</p>
-                </div>
-            </div>
-            <div class="results-gifos-box">
-                <img src="./test/3.jpg" alt="">
-                <div class="wrapper"></div>
-                <div class="gifos-box-buttons display">
-                    <div class="gifos-box-button1"></div>
-                    <div class="gifos-box-button2"></div>
-                    <div class="gifos-box-button3"></div>
-                </div>
-                <div class="gifos-box-text display">
-                    <p class="user">User</p>
-                    <p class="title">Titulo</p>
-                </div>
-            </div>
+        <div class="results-gifos-container" id="mis-gifos-container"> 
         </div>
         <button class="results-gifos-button" id="mis-gifos-vermas"></button>
     </div>
@@ -152,33 +75,35 @@
             <div class="crear-gifo-cuadro-a">
                 <div class="crear-gifo-border1"></div>
                 <div class="crear-gifo-border2"></div>
-                <div class="crear-gifo-content">
+                <div class="crear-gifo-content" id="crear-gifo-content">
                     <h2 class="crear-gifo-h2" id="crear-gifo-h2">Aquí podrás<br> crear tus propios <span>GIFOS</span></h2>
                     <p class="crear-gifo-p" id="crear-gifo-p">
                         ¡Crea tu GIFO en sólo 3 pasos!<br> (sólo necesitas una cámara para grabar un video) 
                     </p>
                 </div>
-                <div class="crear-gifo-2-content">
+                <div class="crear-gifo-2-content" id="crear-gifo-content-2">
                     <h2 class="crear-gifo-h2" id="crear-gifo-content2">¿Nos das acceso<br> a tu cámara?</h2>
                     <p class="crear-gifo-p" id="crear-gifo-content2p">
                         El acceso a tu camara será válido sólo<br> por el tiempo en el que estés creando el GIFO.
                     </p>
                 </div>
-                <div class="crear-gifo-3-content">
-                    <img class="crear-gifo-3-img" src="./test/2.png" alt="Grabacion">
-                    <div class="crear-gifo-3-wrapper"><div class="crear-gifo-3-buttons">
-                        <div class="gifos-box-button2"></div>
-                        <div class="gifos-box-button4"></div>
-                    </div></div>
-                    <div class="crear-gifo-3-load">
+                <div class="crear-gifo-3-content" id="crear-gifo-content-3">
+                    <video id="video" class="video" autoplay> Video stream not avaible</video>
+                    <img class="crear-gifo-3-img" id="img-gif" alt="Gif creado">
+                    <div class="crear-gifo-3-wrapper" id="crear-gifo-3-wrapper">
+                        <div class="crear-gifo-3-buttons" id="btn3">
+                            <a download="myGif" id="downl"><div class="gifos-box-button2" id="btnDownload"></div></a>                            
+                            <div class="gifos-box-button4" id="btnShare"></div>
+                        </div>
+                    </div>
+                    <div class="crear-gifo-3-load" id="crear-gifo-3-load">
                         <img src="./assets/loader.svg" alt="Cargando" class="crear-gifo-3-load-img">
                         <p class="crear-gifo-3-load-p">Estamos subiendo tu GIFO</p>
                     </div>
-                    <div class="crear-gifo-3-load-2">
-                        <img src="./assets/ok.svg" alt="Cargando" class="crear-gifo-3-load-img">
+                    <div class="crear-gifo-3-load-2" id="crear-gifo-3-load-2">
+                        <img src="./assets/ok.svg" alt="Cargado" class="crear-gifo-3-load-img">
                         <p class="crear-gifo-3-load-p">GIFO subido con éxito</p>
                     </div>
-                    
                 </div>
                 <div class="crear-gifo-border3"></div>
                 <div class="crear-gifo-border4"></div>
@@ -199,7 +124,7 @@
             <button class="crear-gifo-finalizar" id="crear-gifo-finalizar">FINALIZAR</button>
             <button class="crear-gifo-subirgifo" id="crear-gifo-subir">SUBIR GIFO</button>
             <div class="crear-gifo-3-time">
-                <p class="crear-gifo-3-time-p" id="crear-gifo-time">00:00:05</p>
+                <p class="crear-gifo-3-time-p" id="crear-gifo-time">00:00:00</p>
             </div>
             <div class="crear-gifo-3-repetir">
                 <p class="crear-gifo-3-repetir-p" id="crear-gifo-repetir">REPETIR CAPTURA</p>
@@ -287,9 +212,9 @@
             <div class="footer-list">
                 <p>Compartir en:</p>
                 <div class="icons">
-                    <div class="footer-icon-1"></div>
-                    <div class="footer-icon-2"></div>
-                    <div class="footer-icon-3"></div>
+                    <a href="https://es-la.facebook.com/GIPHY/" target="__blank"><div class="footer-icon-1"></div></a>
+                    <a href="https://twitter.com/GIPHY?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="__blank"><div class="footer-icon-2"></div></a>
+                    <a href="https://www.instagram.com/giphy/" target="__blank"><div class="footer-icon-3"></div></a>
                 </div>
             </div>
             <div class="footer-p">
@@ -299,6 +224,7 @@
     </footer>
     
     <script src="index.js" type="module"></script>
+    <script src="./modules/darkmode.js" type="module"></script>    
     <script src="./modules/trendingText.js" type="module"></script>
     <script src="./modules/gifmaxClose.js" type="module"></script>
     <script src="./modules/trendingGifos.js" type="module"></script>
@@ -308,9 +234,15 @@
     <script src="./modules/routes.js" type="module"></script>
     <script src="./modules/verMas.js" type="module"></script>
     <script src="./modules/verMasFav.js" type="module"></script>
+    <script src="./modules/verMasMg.js" type="module"></script>
     <script src="./modules/input.js" type="module"></script>
-    <script src="./modules/darkmode.js" type="module"></script>
+    <script src="./modules/crearGifos.js" type="module"></script>
+    <script src="./modules/mobile.js" type="module"></script>
+    
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
     
 
 </body>
 </html>
+
+ 

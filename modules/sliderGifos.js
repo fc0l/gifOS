@@ -1,5 +1,5 @@
 import {results_gifos_container, search_input, api_key } from './input.js';
-import { img_gifmax, favoritos_container} from './routes.js';
+import { img_gifmax, favoritos_container, mis_gifos_container} from './routes.js';
 import { limit_i } from './verMas.js';
 import { button_fav } from './gifmaxFav.js';
 import { trending_cont } from './trendingGifos.js';
@@ -115,6 +115,49 @@ export async function click_r ()
             title_gifmax.innerHTML = json.data[favoritos_number+1].title;
             img_gifmax.dataset.number = favoritos_number + 1;
             img_gifmax.dataset.id = json.data[favoritos_number+1].id;            
+        }
+        else
+        {
+            img_gifmax.src = json.data[0].images.downsized.url;
+            img_gifmax.dataset.number = 0;
+            img_gifmax.dataset.id = json.data[0].id;
+            user_gifmax.innerHTML = json.data[0].username;
+            title_gifmax.innerHTML = json.data[0].title;
+        }
+        if (localStorage.getItem('favoritos').split(',').includes(img_gifmax.dataset.id)) 
+        {
+            button_fav.style.background = "url('./assets/icon-fav-active2.svg')";
+            button_fav.style.backgroundRepeat = 'no-repeat';
+            button_fav.style.backgroundSize = 'contain';
+            button_fav.style.backgroundColor = 'white';
+            button_fav.style.borderRadius = '5px';
+        }
+        else 
+        {
+            button_fav.style.background = "url('./assets/icon-fav.svg')";
+    
+        }
+    }
+    if(localStorage.getItem("gifmax_misgifos") == "true")
+    {
+        let string_id = localStorage.getItem("myGifs").split(',');
+        let misgifos_array = Array.from(mis_gifos_container.childNodes);        
+        let misgifos_filter = misgifos_array.filter((element) => 
+        {return element.nodeName.includes("DIV")});
+        let misgifos_elements = misgifos_filter.length;
+        let misgifos_number = Number(this.parentNode.childNodes[5].childNodes[1].childNodes[1].dataset.number);
+        let misgifos_id = this.parentNode.childNodes[5].childNodes[1].childNodes[1].dataset.id;
+
+        const req = await fetch(`https://api.giphy.com/v1/gifs?api_key=${api_key}&ids=${string_id}`);
+        const json = await req.json();
+
+        if(misgifos_id == json.data[misgifos_number].id && misgifos_number != (misgifos_elements-1))
+        {   
+            img_gifmax.src = json.data[misgifos_number+1].images.downsized.url;
+            user_gifmax.innerHTML = json.data[misgifos_number+1].username;
+            title_gifmax.innerHTML = json.data[misgifos_number+1].title;
+            img_gifmax.dataset.number = misgifos_number + 1;
+            img_gifmax.dataset.id = json.data[misgifos_number+1].id;            
         }
         else
         {
@@ -261,5 +304,47 @@ async function click_l ()
         {
             button_fav.style.background = "url('./assets/icon-fav.svg')";
         }
-    }    
+    }
+    if(localStorage.getItem("gifmax_misgifos") == "true")
+    {
+        let string_id = localStorage.getItem("myGifs").split(',');
+        let misgifos_array = Array.from(mis_gifos_container.childNodes);        
+        let misgifos_filter = misgifos_array.filter((element) => 
+        {return element.nodeName.includes("DIV")});
+        let misgifos_elements = misgifos_filter.length;
+        let misgifos_number = Number(this.parentNode.childNodes[5].childNodes[1].childNodes[1].dataset.number);
+        let misgifos_id = this.parentNode.childNodes[5].childNodes[1].childNodes[1].dataset.id;
+
+        const req = await fetch(`https://api.giphy.com/v1/gifs?api_key=${api_key}&ids=${string_id}`);
+        const json = await req.json();
+
+        if(misgifos_id == json.data[misgifos_number].id && misgifos_number != (0))
+        {
+            img_gifmax.src = json.data[misgifos_number-1].images.downsized.url;
+            user_gifmax.innerHTML = json.data[misgifos_number - 1].username;
+            title_gifmax.innerHTML = json.data[misgifos_number - 1].title;
+            img_gifmax.dataset.number = misgifos_number - 1;
+            img_gifmax.dataset.id = json.data[misgifos_number - 1].id;           
+        }
+        else
+        {
+            img_gifmax.src = json.data[misgifos_elements-1].images.downsized.url;
+            img_gifmax.dataset.number = misgifos_elements-1;
+            img_gifmax.dataset.id = json.data[misgifos_elements-1].id;
+            user_gifmax.innerHTML = json.data[misgifos_elements-1].username;
+            title_gifmax.innerHTML = json.data[misgifos_elements-1].title;            
+        }
+        if (localStorage.getItem('myGifs').split(',').includes(img_gifmax.dataset.id)) 
+        {
+            button_fav.style.background = "url('./assets/icon-fav-active2.svg')";
+            button_fav.style.backgroundRepeat = 'no-repeat';
+            button_fav.style.backgroundSize = 'contain';
+            button_fav.style.backgroundColor = 'white';
+            button_fav.style.borderRadius = '5px';
+        }
+        else 
+        {
+            button_fav.style.background = "url('./assets/icon-fav.svg')";
+        }
+    }     
 }

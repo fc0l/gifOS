@@ -5,14 +5,6 @@
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;
 }
-html {
-    /* overflow: hidden;*/
-    /*agregar cuando sea gifmax*/
-}
-
-.header, .search-container, .trending-text, .trending-gifos {
-    /* display: none; */
-}
 /* navigation bar*/
 
 .nav-container {
@@ -64,6 +56,9 @@ html {
     width: 54px;
     height: 54px;
     cursor: pointer;
+}
+#navbar-crear-gif {
+    display: none;
 }
 
 /* -----------------------------MOBILE VERSION-------------------- */
@@ -714,12 +709,18 @@ html {
     border: 1px solid #CED7E1;
     border-radius: 6px;
 }
+.button1-misgifos {
+    background: url("../assets/icon-trash-normal.svg");
+}
 .gifmax-button1:hover {
     background: url("../assets/icon-fav-hover.svg");
     background-size: contain;
     width: 32px;
     height: 32px;
     cursor: pointer;
+}
+.button1-misgifos:hover {
+    background: url("../assets/icon-trash-hover.svg");
 }
 .gifmax-button2 {
     background: url("../assets/icon-download.svg");
@@ -788,6 +789,9 @@ html {
         color: #000000;
     }
     .gifmax-title {
+        margin-left: 8px;
+    }
+    .gifmax-user {
         margin-left: 8px;
     }
     .gifmax-buttons{
@@ -1179,12 +1183,18 @@ html {
     background: url("../assets/icon-link-normal.svg");
     width: 32px;
     height: 32px;
+    cursor: pointer;
 }
 .gifos-box-button4:hover {
     background: url("../assets/icon-link-hover.svg");
 }
-
 .crear-gifo-3-img {
+    width: 80%;
+    max-width: 480px;
+    height: 320px;
+    display: none;
+}
+.video {
     width: 80%;
     max-width: 480px;
     height: 320px;
@@ -1242,6 +1252,7 @@ html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    cursor: pointer;
     /* display: none; */
 }
 .crear-gifo-bar-number1-color {
@@ -1297,6 +1308,8 @@ html {
     position: absolute;
     right: 0;
     margin-right: 60px;
+}
+.crear-gifo-3-time-p {
     display: none;
 }
 .crear-gifo-3-repetir {
@@ -1309,6 +1322,8 @@ html {
     right: 0;
     margin-right: 20px;
     cursor: pointer;
+}
+.crear-gifo-3-repetir-p {
     display: none;
 }
 .crear-gifo-3-repetir:hover {
@@ -1402,6 +1417,122 @@ html {
     max-width: 142px;
 }
 
+@media screen and (max-width: 767px) {
+    .crear-gifo-1 {
+        width: 90%;
+    }
+    /* ventana crear gifo camara */
+    .crear-gifo-camara {     
+        display: none;
+    }
+    
+    /* ventana crear gifo cuadro */
+    .crear-gifo-cuadro {
+        width: 95%;
+    }
+    .crear-gifo-3-wrapper {
+        width: 80%;
+        max-width: 480px;
+        height: 320px;
+        background: #572EE5;
+        opacity: 0.6;
+        position: absolute;
+        display: none;
+    }
+    .crear-gifo-3-load {
+        position: absolute;
+        text-align: center;
+        display: none;
+    }
+    .crear-gifo-3-load-img {
+        margin-bottom: 10px;
+    }
+    .crear-gifo-3-load-p {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        color: #FFFFFF;
+        font-size: 15px;
+    }
+    .crear-gifo-3-load-2 {
+        position: absolute;
+        text-align: center;
+        display: none;
+    }
+    
+    .crear-gifo-3-buttons {
+        position: absolute;
+        display: flex;
+        column-gap: 10px;
+        top: 0;
+        right: 0;
+        margin-top: 12px;
+        margin-right: 12px;
+        display: none;
+    }
+    .gifos-box-button4 {
+        background: url("../assets/icon-link-normal.svg");
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+    }
+    .gifos-box-button4:hover {
+        background: url("../assets/icon-link-hover.svg");
+    }
+    .crear-gifo-3-img {
+        width: 80%;
+        max-width: 480px;
+        height: 320px;
+        display: none;
+    }
+    .video {
+        width: 80%;
+        max-width: 480px;
+        height: 320px;
+    }
+    
+    .crear-gifo-h2 {
+        text-align: center;
+        margin-bottom: 3px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 20px;
+        color: #572EE5;
+        line-height: 35px;
+    }
+    .crear-gifo-h2 span {
+        color: #50E3C2;
+    }
+    .crear-gifo-p {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        font-size: 15px;
+        text-align: center;
+        line-height: 29px;
+    }
+    
+    /* ventana crear gifo barra */
+    
+    .crear-gifo-bar-numbers {
+        display: flex;
+        justify-content: center;
+        column-gap: 25px;
+        margin-bottom: 19px;
+        margin-top: 45px;
+    }
+    
+    .crear-gifo-3-time {
+        margin-right: 65px;
+    }
+    .crear-gifo-3-time-p {
+        display: none;
+    }
+    .crear-gifo-3-repetir {
+        margin-right: 30px;
+    }    
+    .crear-gifo-cinta {   
+        display: none;
+    }
+}
 
 
 
